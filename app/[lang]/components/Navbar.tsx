@@ -13,7 +13,7 @@ interface Props {
 
 const Navbar: React.FC<Props> = ({ lang }) => {
   return (
-    <header className='px-[10px] sm:px-[25px] md:px-[75px] lg:px-[100px] py-[15px]'>
+    <header className='px-[10px] sm:px-[25px] md:px-[75px] lg:px-[100px] py-[15px] fixed w-full bg-gradient-to-b from-[#090f3f] to-[#090f3fc4]'>
       <nav className='flex justify-between'>
         <Link href={`/${lang === 'en' ? '' : 'es'}`}>
           <Image src={logo} alt='logo' width={55} height={55} />

@@ -42,7 +42,8 @@ export default function Root({
     <html lang={lang} className={poppins.className}>
       <body>
         <Navbar lang={lang} />
-        {children}
+
+        <main className='pt-[85px]'>{children}</main>
       </body>
     </html>
   );
