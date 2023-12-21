@@ -1,7 +1,9 @@
 import type { Metadata } from 'next';
 import { Poppins } from 'next/font/google';
 
-import Header from './components/Header';
+import Navbar from './components/Navbar';
+import { Locale } from '../types/shared.types';
+
 import '../globals.css';
 
 const poppins = Poppins({
@@ -32,12 +34,14 @@ export default function Root({
   params,
 }: {
   children: React.ReactNode;
-  params: { lang: string };
+  params: { lang: Locale };
 }) {
+  const { lang } = params;
+
   return (
-    <html lang={params.lang} className={poppins.className}>
+    <html lang={lang} className={poppins.className}>
       <body>
-        <Header />
+        <Navbar lang={lang} />
         {children}
       </body>
     </html>
