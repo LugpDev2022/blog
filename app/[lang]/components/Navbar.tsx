@@ -12,8 +12,8 @@ interface Props {
 
 const Navbar: React.FC<Props> = ({ lang }) => {
   return (
-    <header>
-      <nav>
+    <header className='px-[10px] sm:px-[25px] md:px-[75px] lg:px-[100px] py-[15px]'>
+      <nav className='flex justify-between'>
         <Link href={`/${lang === 'en' ? '' : 'es'}`}>
           <Image src={logo} alt='logo' width={55} height={55} />
         </Link>
