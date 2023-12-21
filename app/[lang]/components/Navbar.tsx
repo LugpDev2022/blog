@@ -2,7 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import LanguageSwitch from './LanguageSwitch';
-import { Locale } from '@/app/types/shared.types';
+import SearchBox from './SearchBox';
+import type { Locale } from '@/app/types/shared.types';
 
 import logo from '@/public/logo.svg';
 
@@ -18,7 +19,8 @@ const Navbar: React.FC<Props> = ({ lang }) => {
           <Image src={logo} alt='logo' width={55} height={55} />
         </Link>
 
-        <div>
+        <div className='flex items-center gap-[30px] text-lg font-light'>
+          <SearchBox />
           <LanguageSwitch lang={lang} />
         </div>
       </nav>

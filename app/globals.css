@@ -3,6 +3,22 @@
 @tailwind utilities;
 
 html {
-  background-color: rgb(9, 15, 63);
+  background-color: #090f3f;
   color: white;
+}
+
+.searchBox {
+  background: #090f3f !important;
+  border-radius: 999px;
+  border: 1px solid #67e8f9;
+  height: 50px;
+  outline: none;
+  padding-left: 47px;
+  padding-right: 10px;
+  transition: 300ms;
+  width: 274px;
+}
+
+.searchBox:focus {
+  box-shadow: 0px 0px 5px #67e8f9;
 }

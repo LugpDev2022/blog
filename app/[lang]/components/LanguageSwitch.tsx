@@ -26,7 +26,7 @@ const LanguageSwitch: React.FC<Props> = ({ lang }) => {
         height={30}
       />
 
-      <span className='uppercase font-light text-lg'>{lang}</span>
+      <span className='uppercase w-[22px]'>{lang}</span>
     </Link>
   );
 };
