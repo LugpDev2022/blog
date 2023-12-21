@@ -5,6 +5,13 @@ import '../globals.css';
 export const metadata: Metadata = {
   title: 'Luis Cervantes - Blog',
   description: '',
+  robots: 'index, follow',
+  alternates: {
+    languages: {
+      es: 'https://blog.luiscerv.tech/es',
+      en: 'https://blog.luiscerv.tech',
+    },
+  },
 };
 
 export async function generateStaticParams() {
