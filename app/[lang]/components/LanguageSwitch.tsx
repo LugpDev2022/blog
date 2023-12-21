@@ -16,7 +16,7 @@ const LanguageSwitch: React.FC<Props> = ({ lang }) => {
   return (
     <Link
       href={isSpanish ? '/' : '/es'}
-      className='inline-flex py-[10px] px-[15px] gap-[30px] border-[1px] border-cyan-300 rounded-full hover:text-cyan-300 transition'
+      className='inline-flex py-[9px] px-[14px] gap-[30px] border-[1px] border-cyan-300 rounded-full hover:text-cyan-300 transition'
     >
       <Image
         src={isSpanish ? esFlag : enFlag}
