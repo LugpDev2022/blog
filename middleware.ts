@@ -21,12 +21,10 @@ export function middleware(request: NextRequest) {
   const locale = getLocale(request) ?? defaultLocale;
   const { pathname } = request.nextUrl;
 
-  if (pathname.includes('es')) return;
+  if (pathname === '/es' || pathname.includes('/es/')) return;
 
   const newUrl = new URL(`/${locale}${pathname}`, request.nextUrl);
 
-  // e.g. incoming request is /products
-  // The new URL is now /en/products
   return NextResponse.rewrite(newUrl);
 }
 
@@ -34,7 +32,5 @@ export const config = {
   matcher: [
     // Skip all internal paths (_next)
     '/((?!_next|api|favicon.ico).*)',
-    // Optional: only run on root (/) URL
-    // '/'
   ],
 };

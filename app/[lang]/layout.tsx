@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 };
 
 export async function generateStaticParams() {
-  return [{ lang: 'en-US' }, { lang: 'de' }];
+  return [{ lang: 'en' }, { lang: 'es' }];
 }
 
 export default function Root({
@@ -18,12 +18,9 @@ export default function Root({
   children: React.ReactNode;
   params: { lang: string };
 }) {
-  console.log(params.lang);
-
   return (
     <html lang={params.lang}>
       <body>{children}</body>
-      <span>{params.lang}</span>
     </html>
   );
 }
