@@ -20,7 +20,7 @@ const Navbar: React.FC<Props> = ({ lang }) => {
         </Link>
 
         <div className='flex items-center gap-[30px] text-lg font-light'>
-          <SearchBox />
+          <SearchBox lang={lang} />
           <LanguageSwitch lang={lang} />
         </div>
       </nav>
