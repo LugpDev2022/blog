@@ -11,12 +11,18 @@ html {
   background: #090f3f !important;
   border-radius: 999px;
   border: 1px solid #67e8f9;
+  font-size: 16px;
   height: 50px;
   outline: none;
   padding-left: 47px;
   padding-right: 10px;
   transition: 300ms;
   width: 274px;
+}
+
+.searchBox::placeholder {
+  font-size: 18px;
+  line-height: 28px;
 }
 
 .searchBox:focus {
