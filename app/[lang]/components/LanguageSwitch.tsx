@@ -1,9 +1,8 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 import enFlag from '@/public/en.png';
 import esFlag from '@/public/es.png';
-
-import Image from 'next/image';
 
 interface Props {
   isSpanish: boolean;

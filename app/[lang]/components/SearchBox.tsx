@@ -1,5 +1,8 @@
+'use client';
+
 import Image from 'next/image';
 
+import { useForm } from '@/app/hooks/useForm';
 import magGlass from '@/public/mag-glass.png';
 
 interface Props {
@@ -9,9 +12,18 @@ interface Props {
 const SearchBox: React.FC<Props> = ({ isSpanish }) => {
   //TODO: Add an X button to delete content
 
+  const { onResetForm, onInputChange, searchBox } = useForm({
+    searchBox: '',
+  });
+
+  const onSubmitForm = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    console.log(searchBox);
+  };
+
   return (
-    <form className='relative hidden md:block'>
-      <label htmlFor='SearchBox'>
+    <form className='relative hidden md:block' onSubmit={onSubmitForm}>
+      <label htmlFor='searchBox'>
         <Image
           src={magGlass}
           alt='magnifying glass'
@@ -25,9 +37,11 @@ const SearchBox: React.FC<Props> = ({ isSpanish }) => {
         type='text'
         placeholder={isSpanish ? 'Buscar' : 'Search'}
         className='searchBox'
-        id='SearchBox'
-        name='SearchBox'
+        id='searchBox'
+        name='searchBox'
         autoComplete='off'
+        onChange={onInputChange}
+        value={searchBox}
       />
     </form>
   );
