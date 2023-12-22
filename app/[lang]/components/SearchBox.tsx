@@ -3,15 +3,15 @@
 import Image from 'next/image';
 
 import { useForm } from '@/app/hooks/useForm';
+
 import magGlass from '@/public/mag-glass.png';
+import closeIcon from '@/public/x.png';
 
 interface Props {
   isSpanish: boolean;
 }
 
 const SearchBox: React.FC<Props> = ({ isSpanish }) => {
-  //TODO: Add an X button to delete content
-
   const { onResetForm, onInputChange, searchBox } = useForm({
     searchBox: '',
   });
@@ -43,6 +43,16 @@ const SearchBox: React.FC<Props> = ({ isSpanish }) => {
         onChange={onInputChange}
         value={searchBox}
       />
+
+      <button
+        type='reset'
+        onClick={onResetForm}
+        className={`${
+          searchBox.length < 1 ? 'hidden' : 'block'
+        } absolute top-1/2 right-[10px] transform -translate-y-1/2`}
+      >
+        <Image src={closeIcon} width={20} height={20} alt='x icon' />
+      </button>
     </form>
   );
 };
