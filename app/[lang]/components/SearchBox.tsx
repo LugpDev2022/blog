@@ -1,13 +1,12 @@
 import Image from 'next/image';
 
 import magGlass from '@/public/mag-glass.png';
-import { Locale } from '@/app/types/shared.types';
 
 interface Props {
-  lang: Locale;
+  isSpanish: boolean;
 }
 
-const SearchBox: React.FC<Props> = ({ lang }) => {
+const SearchBox: React.FC<Props> = ({ isSpanish }) => {
   //TODO: Add an X button to delete content
 
   return (
@@ -24,7 +23,7 @@ const SearchBox: React.FC<Props> = ({ lang }) => {
 
       <input
         type='text'
-        placeholder={lang === 'es' ? 'Buscar' : 'Search'}
+        placeholder={isSpanish ? 'Buscar' : 'Search'}
         className='searchBox'
         id='SearchBox'
         name='SearchBox'

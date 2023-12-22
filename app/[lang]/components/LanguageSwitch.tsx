@@ -3,16 +3,13 @@ import Link from 'next/link';
 import enFlag from '@/public/en.png';
 import esFlag from '@/public/es.png';
 
-import { Locale } from '@/app/types/shared.types';
 import Image from 'next/image';
 
 interface Props {
-  lang: Locale;
+  isSpanish: boolean;
 }
 
-const LanguageSwitch: React.FC<Props> = ({ lang }) => {
-  const isSpanish = lang === 'es';
-
+const LanguageSwitch: React.FC<Props> = ({ isSpanish }) => {
   return (
     <Link
       href={isSpanish ? '/' : '/es'}
@@ -26,7 +23,7 @@ const LanguageSwitch: React.FC<Props> = ({ lang }) => {
         height={30}
       />
 
-      <span className='uppercase w-[22px]'>{lang}</span>
+      <span className='uppercase w-[22px]'>{isSpanish ? 'es' : 'en'}</span>
     </Link>
   );
 };

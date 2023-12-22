@@ -12,6 +12,8 @@ interface Props {
 }
 
 const Navbar: React.FC<Props> = ({ lang }) => {
+  const isSpanish = lang === 'es';
+
   return (
     <header className='px-[10px] sm:px-[25px] md:px-[75px] lg:px-[100px] py-[15px] fixed w-full bg-gradient-to-b from-[#090f3f] to-[#090f3fc4]'>
       <nav className='flex justify-between'>
@@ -20,8 +22,8 @@ const Navbar: React.FC<Props> = ({ lang }) => {
         </Link>
 
         <div className='flex items-center gap-[30px] text-lg font-light'>
-          <SearchBox lang={lang} />
-          <LanguageSwitch lang={lang} />
+          <SearchBox isSpanish={isSpanish} />
+          <LanguageSwitch isSpanish={isSpanish} />
         </div>
       </nav>
     </header>
