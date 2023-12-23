@@ -22,7 +22,7 @@ const SearchBox: React.FC<Props> = ({ isSpanish }) => {
   };
 
   return (
-    <form className='relative hidden md:block' onSubmit={onSubmitForm}>
+    <form className='relative hidden lg:block' onSubmit={onSubmitForm}>
       <label htmlFor='searchBox'>
         <Image
           src={magGlass}

@@ -1,9 +1,6 @@
-import Image from 'next/image';
-
-import type { Locale } from '../types/shared.types';
+import Aside from './components/Aside';
 import { getDictionary } from './lib/getDictionary';
-
-import me from '@/public/me.jpg';
+import type { Locale } from '../types/shared.types';
 
 interface Props {
   params: { lang: Locale };
@@ -18,15 +15,7 @@ const Home: React.FC<Props> = async ({ params: { lang } }) => {
         <h1>Blog</h1>
         <p>{dict.example}</p>
       </div>
-      <aside>
-        <Image
-          src={me}
-          alt='avatar'
-          height={100}
-          width={100}
-          className='rounded-full'
-        />
-      </aside>
+      <Aside lang={lang} />
     </main>
   );
 };
