@@ -1,3 +1,8 @@
 {
-  "example": "Ejemplo en español"
+  "example": "Ejemplo en español",
+
+  "aside": {
+    "author": "Autor: Luis Cervantes",
+    "about": "Soy un desarrollador Front End nacido en México. Mi sueño es trabajar algún día para una gran empresa tecnológica, así que estoy trabajando activamente para lograrlo."
+  }
 }
