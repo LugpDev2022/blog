@@ -34,6 +34,23 @@ html {
   padding-top: 50px !important;
 }
 
+.see-more-link {
+  align-items: center;
+  display: inline-flex;
+  font-size: 18px;
+  gap: 10px;
+  transition: 300ms;
+}
+
+.see-more-link:hover {
+  @apply text-cyan-300;
+  gap: 20px;
+}
+
+.see-more-link:hover > svg > path {
+  @apply fill-cyan-300;
+}
+
 @media (min-width: 640px) {
   .home-layout {
     padding: 0 25px;

@@ -1,6 +1,7 @@
 import type { LatestArticle, Locale } from '@/app/types/shared.types';
 import Article from './Article';
 import Link from 'next/link';
+import Arrow from '@/app/components/Arrow';
 
 interface Props {
   lang: Locale;
@@ -9,7 +10,7 @@ interface Props {
 const LastestArticles: React.FC<Props> = async ({ lang }) => {
   const resp = await fetch(
     `${process.env.CURRENT_DOMAIN}/api/articles/${lang}/latest`,
-    { cache: 'no-store' }
+    { next: { revalidate: 900 } }
   );
   const { articles } = await resp.json();
 
@@ -20,7 +21,12 @@ const LastestArticles: React.FC<Props> = async ({ lang }) => {
           <Article key={article.title} {...article} />
         ))}
       </ul>
-      <Link href={`/${lang === 'es' ? 'es/' : ''}articles`}>See more</Link>
+      <Link
+        href={`/${lang === 'es' ? 'es/' : ''}articles`}
+        className='see-more-link ml-[15px] mt-[10px]'
+      >
+        See more <Arrow />
+      </Link>
     </>
   );
 };
