@@ -26,7 +26,7 @@ const SearchBox: React.FC<Props> = ({ isSpanish }) => {
       <label htmlFor='searchBox'>
         <Image
           src={magGlass}
-          alt='magnifying glass'
+          alt={isSpanish ? 'lupa' : 'magnifying glass'}
           width={27}
           height={27}
           className='absolute top-1/2 left-[10px] transform -translate-y-1/2'
