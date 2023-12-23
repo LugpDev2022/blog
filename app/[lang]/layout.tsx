@@ -40,10 +40,10 @@ export default function Root({
 
   return (
     <html lang={lang} className={poppins.className}>
-      <body>
+      <body className='pt-[85px]'>
         <Navbar lang={lang} />
 
-        <main className='pt-[85px]'>{children}</main>
+        {children}
       </body>
     </html>
   );

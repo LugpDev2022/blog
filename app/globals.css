@@ -28,3 +28,10 @@ html {
 .searchBox:focus {
   box-shadow: 0px 0px 5px #67e8f9;
 }
+
+.home-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 50px;
+  grid-auto-rows: auto;
+}
