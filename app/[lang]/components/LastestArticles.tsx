@@ -25,7 +25,9 @@ const LastestArticles: React.FC<Props> = async ({ lang }) => {
     <>
       <ul>
         {pageArticles.map((article: LatestArticle) => (
-          <Article key={article.title} {...article} />
+          <li key={article.title}>
+            <Article {...article} />
+          </li>
         ))}
       </ul>
       <Link
