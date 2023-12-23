@@ -8,16 +8,23 @@ interface Props {
 }
 
 const LastestArticles: React.FC<Props> = async ({ lang }) => {
-  const resp = await fetch(
-    `${process.env.CURRENT_DOMAIN}/api/articles/${lang}/latest`,
-    { next: { revalidate: 900 } }
-  );
-  const { articles } = await resp.json();
+  let pageArticles = [];
+
+  try {
+    const resp = await fetch(
+      `${process.env.CURRENT_DOMAIN}/api/articles/${lang}/latest`,
+      { next: { revalidate: 900 } }
+    );
+    const { articles } = await resp.json();
+    pageArticles = articles;
+  } catch (error) {
+    console.log(error);
+  }
 
   return (
     <>
       <ul>
-        {articles.map((article: LatestArticle) => (
+        {pageArticles.map((article: LatestArticle) => (
           <Article key={article.title} {...article} />
         ))}
       </ul>
