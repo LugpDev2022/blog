@@ -1,16 +1,11 @@
 import type { Metadata } from 'next';
-import { Poppins } from 'next/font/google';
 
 import Navbar from './components/Navbar';
+import { poppins } from '../fonts';
 import { Locale } from '../types/shared.types';
 
 import '../globals.css';
-
-const poppins = Poppins({
-  subsets: ['latin'],
-  display: 'swap',
-  weight: ['300', '400', '600'],
-});
+import './blog.css';
 
 //TODO: Write a description
 export const metadata: Metadata = {
