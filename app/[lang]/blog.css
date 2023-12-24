@@ -20,29 +20,32 @@
   box-shadow: 0px 0px 5px #67e8f9;
 }
 
-.home-layout {
+main {
   padding: 0 15px;
   padding-top: 50px !important;
 }
 
 @media (min-width: 640px) {
-  .home-layout {
+  main {
     padding: 0 25px;
   }
 }
 
 @media (min-width: 768px) {
+  main {
+    padding: 0 90px;
+  }
+
   .home-layout {
     display: grid;
     gap: 50px;
     grid-auto-rows: auto;
     grid-template-columns: 2fr 1fr;
-    padding: 0 90px;
   }
 }
 
 @media (min-width: 1024px) {
-  .home-layout {
+  main {
     padding: 0 120px;
   }
 }
