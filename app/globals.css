@@ -7,33 +7,6 @@ html {
   color: white;
 }
 
-.searchBox {
-  background: #090f3f !important;
-  border-radius: 999px;
-  border: 1px solid #67e8f9;
-  font-size: 16px;
-  height: 50px;
-  outline: none;
-  padding-left: 47px;
-  padding-right: 35px;
-  transition: 300ms;
-  width: 274px;
-}
-
-.searchBox::placeholder {
-  font-size: 18px;
-  line-height: 28px;
-}
-
-.searchBox:focus {
-  box-shadow: 0px 0px 5px #67e8f9;
-}
-
-.home-layout {
-  padding: 0 15px;
-  padding-top: 50px !important;
-}
-
 .see-more-link {
   align-items: center;
   display: inline-flex;
@@ -49,26 +22,4 @@ html {
 
 .see-more-link:hover > svg > path {
   @apply fill-cyan-300;
-}
-
-@media (min-width: 640px) {
-  .home-layout {
-    padding: 0 25px;
-  }
-}
-
-@media (min-width: 768px) {
-  .home-layout {
-    display: grid;
-    gap: 50px;
-    grid-auto-rows: auto;
-    grid-template-columns: 2fr 1fr;
-    padding: 0 90px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .home-layout {
-    padding: 0 120px;
-  }
 }
