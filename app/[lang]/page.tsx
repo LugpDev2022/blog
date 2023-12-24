@@ -12,7 +12,7 @@ const Home: React.FC<Props> = async ({ params: { lang } }) => {
 
   return (
     <div className='home-layout'>
-      <div>
+      <div className='mb-[50px]'>
         <h2 className='text-[22px] mb-[10px]'>{dict.latest.subtitle}</h2>
         <LastestArticles lang={lang} />
       </div>
