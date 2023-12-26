@@ -31,6 +31,10 @@
   width: 100%;
 }
 
+.latest-container {
+  margin-bottom: 50px;
+}
+
 main {
   padding: 0 15px;
   padding-top: 40px !important;
@@ -67,6 +71,10 @@ main {
     grid-auto-rows: auto;
     align-items: start;
     grid-template-columns: 1fr 340px;
+  }
+
+  .latest-container {
+    margin-bottom: 0px;
   }
 }
 
