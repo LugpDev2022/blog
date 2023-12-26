@@ -69,3 +69,10 @@ main {
     grid-template-columns: 1fr 340px;
   }
 }
+
+@media (min-width: 1280px) {
+  .home-layout {
+    grid-template-columns: 800px 340px;
+    justify-content: space-between;
+  }
+}
