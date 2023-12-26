@@ -7,6 +7,12 @@ html {
   color: white;
 }
 
+body {
+  max-width: 1280px;
+  margin: auto;
+  position: relative;
+}
+
 .see-more-link {
   align-items: center;
   display: inline-flex;
