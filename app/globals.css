@@ -13,6 +13,11 @@ body {
   position: relative;
 }
 
+.subtitle {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
 .see-more-link {
   align-items: center;
   display: inline-flex;
