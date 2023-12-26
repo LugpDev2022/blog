@@ -6,6 +6,7 @@
     "about": "I'm a Front End developer born in Mexico. My dream is to someday work for a big tech company, so I'm actively working towards it."
   },
   "latest": {
-    "subtitle": "Latest Articles"
+    "subtitle": "Latest Articles",
+    "seeMoreLink": "See more"
   }
 }

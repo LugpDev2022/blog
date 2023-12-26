@@ -1,13 +1,17 @@
-import type { LatestArticle, Locale } from '@/app/types/shared.types';
-import Article from './Article';
 import Link from 'next/link';
+
+import Article from './Article';
 import Arrow from '@/app/components/Arrow';
+import { getDictionary } from '../lib/getDictionary';
+import type { LatestArticle, Locale } from '@/app/types/shared.types';
 
 interface Props {
   lang: Locale;
 }
 
 const LastestArticles: React.FC<Props> = async ({ lang }) => {
+  const dict = await getDictionary(lang);
+
   let pageArticles = [];
 
   try {
@@ -34,7 +38,7 @@ const LastestArticles: React.FC<Props> = async ({ lang }) => {
         href={`/${lang === 'es' ? 'es/' : ''}articles`}
         className='see-more-link ml-[15px] mt-[10px]'
       >
-        See more <Arrow />
+        {dict.latest.seeMoreLink} <Arrow />
       </Link>
     </>
   );
