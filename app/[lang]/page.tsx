@@ -11,13 +11,13 @@ const Home: React.FC<Props> = async ({ params: { lang } }) => {
   const dict = await getDictionary(lang);
 
   return (
-    <div className='home-layout'>
+    <main className='home-layout'>
       <div className='latest-container'>
         <h2 className='subtitle'>{dict.latest.subtitle}</h2>
         <LastestArticles lang={lang} />
       </div>
       <Aside lang={lang} />
-    </div>
+    </main>
   );
 };
 

@@ -38,7 +38,7 @@ export default function Root({
       <body className='pt-[85px]'>
         <Navbar lang={lang} />
 
-        <main>{children}</main>
+        {children}
       </body>
     </html>
   );
