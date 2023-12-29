@@ -15,7 +15,7 @@ const Navbar: React.FC<Props> = ({ lang }) => {
   const isSpanish = lang === 'es';
 
   return (
-    <header className='navbar'>
+    <header className='navbar backdrop-blur-sm'>
       <nav className='flex justify-between'>
         <Link href={`/${lang === 'en' ? '' : 'es'}`}>
           <Image src={logo} alt='logo' width={55} height={55} />
