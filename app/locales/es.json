@@ -8,5 +8,8 @@
   "latest": {
     "subtitle": "Últimos Artículos",
     "seeMoreLink": "Ver más"
+  },
+  "allArticles": {
+    "subtitle": "Todos los artículos"
   }
 }

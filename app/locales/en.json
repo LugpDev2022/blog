@@ -8,5 +8,8 @@
   "latest": {
     "subtitle": "Latest Articles",
     "seeMoreLink": "See more"
+  },
+  "allArticles": {
+    "subtitle": "All articles"
   }
 }
