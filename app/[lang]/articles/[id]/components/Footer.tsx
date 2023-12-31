@@ -1,6 +1,6 @@
 import Article from '@/app/[lang]/components/Article';
 import { getDictionary } from '@/app/[lang]/lib/getDictionary';
-import { Locale } from '@/app/types/shared.types';
+import type { LatestArticle, Locale } from '@/app/types/shared.types';
 
 interface Props {
   lang: Locale;
@@ -9,33 +9,23 @@ interface Props {
 const Footer: React.FC<Props> = async ({ lang }) => {
   const dict = await getDictionary(lang);
 
+  const resp = await fetch(
+    `${process.env.CURRENT_DOMAIN}/api/articles/${lang}/random`,
+    { cache: 'no-store' }
+  );
+
+  const { articles } = await resp.json();
+
   return (
     <footer className='article-footer'>
       <h4 className='footer-title'>{dict.article.otherArticles}</h4>
 
       <ul>
-        <li>
-          <Article
-            date='19/nov/2023'
-            href='/'
-            icon={{
-              alt: 'js',
-              src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/768px-JavaScript-logo.png',
-            }}
-            title='FDSfsf'
-          />
-        </li>
-        <li>
-          <Article
-            date='19/nov/2023'
-            href='/'
-            icon={{
-              alt: 'js',
-              src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/768px-JavaScript-logo.png',
-            }}
-            title='FDSfsf'
-          />
-        </li>
+        {articles.map((article: LatestArticle) => (
+          <li key={article.title}>
+            <Article {...article} />
+          </li>
+        ))}
       </ul>
     </footer>
   );
