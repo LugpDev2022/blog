@@ -11,5 +11,8 @@
   },
   "allArticles": {
     "subtitle": "Todos los artículos"
+  },
+  "article": {
+    "otherArticles": "Otros artículos"
   }
 }

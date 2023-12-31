@@ -1,8 +1,10 @@
 import Footer from './components/Footer';
 import './article.css';
+import { Locale } from '@/app/types/shared.types';
 
 interface Props {
   children: React.ReactNode;
+  params: { lang: Locale };
 }
 
 export async function generateMetadata() {
@@ -11,12 +13,12 @@ export async function generateMetadata() {
   };
 }
 
-const ArticleLayout: React.FC<Props> = ({ children }) => {
+const ArticleLayout: React.FC<Props> = ({ children, params: { lang } }) => {
   return (
     <main className='article-layout'>
       {children}
 
-      <Footer />
+      <Footer lang={lang} />
     </main>
   );
 };

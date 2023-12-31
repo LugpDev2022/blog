@@ -1,9 +1,17 @@
 import Article from '@/app/[lang]/components/Article';
+import { getDictionary } from '@/app/[lang]/lib/getDictionary';
+import { Locale } from '@/app/types/shared.types';
 
-const Footer = () => {
+interface Props {
+  lang: Locale;
+}
+
+const Footer: React.FC<Props> = async ({ lang }) => {
+  const dict = await getDictionary(lang);
+
   return (
     <footer className='article-footer'>
-      <h4 className='footer-title'>Other articles</h4>
+      <h4 className='footer-title'>{dict.article.otherArticles}</h4>
 
       <ul>
         <li>
