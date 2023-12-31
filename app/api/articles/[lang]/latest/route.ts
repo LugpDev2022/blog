@@ -1,11 +1,11 @@
 import { NextRequest } from 'next/server';
-import type { LatestArticle } from '@/app/types/shared.types';
+import type { BlogArticle } from '@/app/types/shared.types';
 
 export const GET = async (req: NextRequest) => {
   let lang = req.nextUrl.href.includes('/es/') ? 'es' : 'en';
 
   const articles = [];
-  const article: LatestArticle = {
+  const article: BlogArticle = {
     icon: {
       src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/768px-JavaScript-logo.png',
       alt: 'javascript logo',

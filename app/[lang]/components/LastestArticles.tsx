@@ -3,7 +3,7 @@ import Link from 'next/link';
 import Article from './Article';
 import Arrow from '@/app/components/Arrow';
 import { getDictionary } from '../lib/getDictionary';
-import type { LatestArticle, Locale } from '@/app/types/shared.types';
+import type { BlogArticle, Locale } from '@/app/types/shared.types';
 
 interface Props {
   lang: Locale;
@@ -28,7 +28,7 @@ const LastestArticles: React.FC<Props> = async ({ lang }) => {
   return (
     <>
       <ul>
-        {pageArticles.map((article: LatestArticle) => (
+        {pageArticles.map((article: BlogArticle) => (
           <li key={article.title}>
             <Article {...article} />
           </li>

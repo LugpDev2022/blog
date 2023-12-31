@@ -1,6 +1,6 @@
 export type Locale = 'es' | 'en';
 
-export type LatestArticle = {
+export type BlogArticle = {
   title: string;
   icon: {
     src: string;
