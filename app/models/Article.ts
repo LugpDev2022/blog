@@ -2,7 +2,13 @@ import { Schema, model, models } from 'mongoose';
 
 const ArticleSchema = new Schema(
   {
-    slug: { type: String, unique: true, required: true },
+    icon: {
+      src: { type: String, required: true },
+      alt: {
+        es: { type: String, required: true },
+        en: { type: String, required: true },
+      },
+    },
 
     translations: {
       en: {
