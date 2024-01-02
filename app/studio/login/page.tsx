@@ -16,13 +16,23 @@ const StudioLogin = () => {
 
         <form>
           <div className='login-input'>
-            <label>Email</label>
-            <input type='text' placeholder='email@example.com' />
+            <label htmlFor='email'>Email</label>
+            <input
+              type='text'
+              id='email'
+              name='email'
+              placeholder='email@example.com'
+            />
           </div>
 
           <div className='login-input'>
-            <label>Password</label>
-            <input type='password' placeholder='Your Password' />
+            <label htmlFor='password'>Password</label>
+            <input
+              type='password'
+              id='password'
+              name='password'
+              placeholder='Your Password'
+            />
           </div>
 
           <button
