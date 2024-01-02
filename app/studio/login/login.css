@@ -1,0 +1,26 @@
+.login-input {
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.login-input > label {
+  position: absolute;
+  top: -13.5px;
+  left: 36px;
+  font-size: 18px;
+  border-right: 1.5px solid #67e8f9;
+  border-left: 1.5px solid #67e8f9;
+  padding: 0 10px;
+  background-color: #090f3f;
+}
+
+.login-input > input {
+  height: 100%;
+  background-color: transparent;
+  border: 1.5px solid #67e8f9;
+  padding: 20px 15px;
+  border-radius: 10px;
+  outline: none;
+  font-weight: 300;
+  width: 100%;
+}
