@@ -1,6 +1,8 @@
 import Image from 'next/image';
-import logo from '@/public/logo.svg';
 import Link from 'next/link';
+
+import PasswordInput from './components/PasswordInput';
+import logo from '@/public/logo.svg';
 import Arrow from '@/app/components/Arrow';
 
 import './login.css';
@@ -25,15 +27,7 @@ const StudioLogin = () => {
             />
           </div>
 
-          <div className='login-input'>
-            <label htmlFor='password'>Password</label>
-            <input
-              type='password'
-              id='password'
-              name='password'
-              placeholder='Your Password'
-            />
-          </div>
+          <PasswordInput />
 
           <button
             type='submit'
