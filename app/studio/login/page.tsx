@@ -24,6 +24,7 @@ const StudioLogin = () => {
               id='email'
               name='email'
               placeholder='email@example.com'
+              autoComplete='off'
             />
           </div>
 

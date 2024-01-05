@@ -16,6 +16,7 @@ const PasswordInput = () => {
         id='password'
         name='password'
         placeholder='Your Password'
+        autoComplete='off'
       />
       <button
         type='button'
