@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation';
 
 import Nav from './Nav';
 import logo from '@/public/studio-logo.png';
+import Searchbox from './Searchbox';
 
 const Aside: React.FC = () => {
   const pathname = usePathname();
@@ -16,16 +17,13 @@ const Aside: React.FC = () => {
 
   return (
     <aside className='h-svh w-[240px] items-center bg-white/5 inline-flex flex-col'>
-      <header>
+      <header className='pt-5'>
         <Link href='/studio' className='flex text-cyan-300'>
           <Image src={logo} alt='Logo' height={55} width={158} />
         </Link>
       </header>
 
-      <form>
-        <input type='text' className='w-[210px]' />
-      </form>
-
+      <Searchbox />
       <Nav />
     </aside>
   );
