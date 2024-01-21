@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
+import Nav from './Nav';
 import logo from '@/public/studio-logo.png';
 
 const Aside: React.FC = () => {
@@ -25,30 +26,7 @@ const Aside: React.FC = () => {
         <input type='text' className='w-[210px]' />
       </form>
 
-      <nav>
-        <ul>
-          <li>
-            <Link className='' href='/studio'>
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link className='' href='/studio'>
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link className='' href='/studio'>
-              Home
-            </Link>
-          </li>
-          <li>
-            <Link className='' href='/studio'>
-              Home
-            </Link>
-          </li>
-        </ul>
-      </nav>
+      <Nav />
     </aside>
   );
 };
