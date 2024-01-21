@@ -1,4 +1,4 @@
-import { BlogArticle } from '@/src/app/types/shared.types';
+import { BlogArticle } from '@/src/types/shared.types';
 import { NextRequest, NextResponse } from 'next/server';
 
 export const GET = async (req: NextRequest) => {

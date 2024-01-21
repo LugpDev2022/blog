@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import LanguageSwitch from './LanguageSwitch';
 import SearchBox from './SearchBox';
-import type { Locale } from '@/src/app/types/shared.types';
+import type { Locale } from '@/src/types/shared.types';
 
 import logo from '@/public/logo.svg';
 

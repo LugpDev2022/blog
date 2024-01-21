@@ -1,7 +1,7 @@
 import Aside from './components/Aside';
 import LastestArticles from './components/LastestArticles';
 import { getDictionary } from './lib/getDictionary';
-import type { Locale } from '../types/shared.types';
+import type { Locale } from '@/src/types/shared.types';
 
 interface Props {
   params: { lang: Locale };

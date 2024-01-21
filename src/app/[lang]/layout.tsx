@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 
 import Navbar from './components/Navbar';
-import { poppins } from '../fonts';
-import { Locale } from '../types/shared.types';
+import { poppins } from '../../fonts';
+import { Locale } from '@/src/types/shared.types';
 
-import '../globals.css';
+import '../../globals.css';
 import './blog.css';
 
 //TODO: Write a description

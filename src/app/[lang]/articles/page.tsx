@@ -1,6 +1,6 @@
 import ArticlesSection from './components/ArticlesSection';
 import { getDictionary } from '../lib/getDictionary';
-import { Locale } from '@/src/app/types/shared.types';
+import { Locale } from '@/src/types/shared.types';
 
 interface Props {
   params: { lang: Locale };

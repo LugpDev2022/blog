@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 
-import Eye from '@/src/app/svgs/Eye';
-import ClosedEye from '@/src/app/svgs/ClosedEye';
+import Eye from '@/src/icons/Eye';
+import ClosedEye from '@/src/icons/ClosedEye';
 
 const PasswordInput = () => {
   const [showPassword, setShowPassword] = useState(false);

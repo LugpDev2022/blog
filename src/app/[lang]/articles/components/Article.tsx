@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import type { BlogArticle } from '@/src/app/types/shared.types';
+import type { BlogArticle } from '@/src/types/shared.types';
 
 const Article = ({ title, icon, date, href }: BlogArticle) => {
   return (

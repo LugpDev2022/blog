@@ -1,5 +1,5 @@
-import '../globals.css';
-import { poppins } from '../fonts';
+import '../../globals.css';
+import { poppins } from '../../fonts';
 import Aside from './components/Aside';
 import './studio.css';
 

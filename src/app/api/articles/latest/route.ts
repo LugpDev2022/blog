@@ -1,6 +1,6 @@
-import { NextRequest, NextResponse } from 'next/server';
-import Article from '@/src/app/models/Article';
-import { connectDB } from '@/src/app/utils/mongoose';
+import { NextResponse } from 'next/server';
+import Article from '@/src/models/Article';
+import { connectDB } from '@/src/utils/mongoose';
 
 export const GET = async () => {
   try {

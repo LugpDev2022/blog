@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 
-import { useForm } from '@/src/app/hooks/useForm';
+import { useForm } from '@/src/hooks/useForm';
 
 import magGlass from '@/public/mag-glass.png';
 import closeIcon from '@/public/x.png';

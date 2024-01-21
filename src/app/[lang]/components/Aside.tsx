@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 import me from '@/public/me.jpg';
-import { Locale } from '@/src/app/types/shared.types';
+import { Locale } from '@/src/types/shared.types';
 import { getDictionary } from '../lib/getDictionary';
 
 import linkedin from '@/public/contacts/linkedin.svg';

@@ -1,5 +1,5 @@
 import Article from './Article';
-import { Locale } from '@/src/app/types/shared.types';
+import { Locale } from '@/src/types/shared.types';
 
 interface Props {
   lang: Locale;

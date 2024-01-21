@@ -1,5 +1,5 @@
-import { poppins } from '../fonts';
-import '../globals.css';
+import { poppins } from '../../fonts';
+import '../../globals.css';
 import './login.css';
 
 export const metadata = {

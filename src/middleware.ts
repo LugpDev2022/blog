@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getLocale } from './app/utils/getLocale';
+import { getLocale } from './utils/getLocale';
 
 export function middleware(request: NextRequest) {
   const locale = getLocale(request);
@@ -9,7 +9,7 @@ export function middleware(request: NextRequest) {
     return NextResponse.next();
 
   const token = request.cookies.get('authCookie');
-  const isTokenValid = false;
+  const isTokenValid = true;
 
   if (pathname === '/login') {
     if (isTokenValid) {

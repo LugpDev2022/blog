@@ -1,6 +1,6 @@
 import Article from '@/src/app/[lang]/components/Article';
 import { getDictionary } from '@/src/app/[lang]/lib/getDictionary';
-import type { BlogArticle, Locale } from '@/src/app/types/shared.types';
+import type { BlogArticle, Locale } from '@/src/types/shared.types';
 
 interface Props {
   lang: Locale;

@@ -1,6 +1,6 @@
 import Footer from './components/Footer';
 import './article.css';
-import { Locale } from '@/src/app/types/shared.types';
+import { Locale } from '@/src/types/shared.types';
 
 interface Props {
   children: React.ReactNode;

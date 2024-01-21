@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import PasswordInput from './components/PasswordInput';
 import logo from '@/public/logo.svg';
-import Arrow from '@/src/app/components/Arrow';
+import Arrow from '@/src/icons/Arrow';
 
 const StudioLogin = () => {
   return (

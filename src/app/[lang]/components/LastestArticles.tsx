@@ -1,10 +1,10 @@
 import Link from 'next/link';
 
 import Article from './Article';
-import Arrow from '@/src/app/components/Arrow';
+import Arrow from '@/src/icons/Arrow';
 import { getDictionary } from '../lib/getDictionary';
-import { formatDate, buildArticleUrl } from '@/src/app/utils';
-import type { Locale } from '@/src/app/types/shared.types';
+import { formatDate, buildArticleUrl } from '../../utils';
+import type { Locale } from '@/src/types/shared.types';
 
 interface Props {
   lang: Locale;
