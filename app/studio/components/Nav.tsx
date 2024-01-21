@@ -1,20 +1,25 @@
+import { usePathname } from 'next/navigation';
+
 import NavItem from './NavItem';
+
 import HomeIcon from '../icons/HomeIcon';
 import DraftIcon from '../icons/DraftIcon';
 import EditorIcon from '../icons/EditorIcon';
 import LogoutIcon from '../icons/LogoutIcon';
 
 const Nav = () => {
+  const pathname = usePathname();
+
   return (
     <nav className='w-full mt-10'>
       <ul>
-        <NavItem href='/' isActive>
+        <NavItem href='/' isActive={pathname === '/studio'}>
           <HomeIcon /> Home
         </NavItem>
-        <NavItem href='/drafts'>
+        <NavItem href='/drafts' isActive={pathname.includes('/drafts')}>
           <DraftIcon /> Drafts
         </NavItem>
-        <NavItem href='/'>
+        <NavItem href='/editor' isActive={pathname.includes('/editor')}>
           <EditorIcon /> Editor
         </NavItem>
 
