@@ -5,7 +5,6 @@ import './studio.css';
 
 export const metadata = {
   title: 'Luis Cervantes - Studio',
-  description: '',
 };
 
 export default function StudioLayout({

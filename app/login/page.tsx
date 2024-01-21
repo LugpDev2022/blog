@@ -5,8 +5,6 @@ import PasswordInput from './components/PasswordInput';
 import logo from '@/public/logo.svg';
 import Arrow from '@/app/components/Arrow';
 
-import './login.css';
-
 const StudioLogin = () => {
   return (
     <div className='flex h-screen justify-center items-center'>

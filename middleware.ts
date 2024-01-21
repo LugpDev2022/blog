@@ -8,23 +8,20 @@ export function middleware(request: NextRequest) {
   if (pathname === '/es' || pathname.includes('/es/'))
     return NextResponse.next();
 
-  if (pathname === '/studio' || pathname.includes('/studio/')) {
-    const token = request.cookies.get('authCookie');
+  const token = request.cookies.get('authCookie');
+  const isTokenValid = false;
 
-    const isTokenValid = false;
-
-    if (!isTokenValid) {
-      if (pathname !== '/login') {
-        return NextResponse.redirect(new URL('/login', request.nextUrl));
-      }
-
-      return NextResponse.next();
-    }
-
-    if (pathname === '/login') {
+  if (pathname === '/login') {
+    if (isTokenValid) {
       return NextResponse.redirect(new URL('/studio', request.nextUrl));
     }
+    return NextResponse.next();
+  }
 
+  if (pathname === '/studio' || pathname.includes('/studio/')) {
+    if (!isTokenValid) {
+      return NextResponse.redirect(new URL('/login', request.nextUrl));
+    }
     return NextResponse.next();
   }
 
