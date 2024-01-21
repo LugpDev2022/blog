@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { getLocale } from './utils/getLocale';
 
 export function middleware(request: NextRequest) {
-  const locale = getLocale(request);
+  const locale = getLocale(request) ?? 'en';
   const { pathname } = request.nextUrl;
 
   if (pathname === '/es' || pathname.includes('/es/'))
