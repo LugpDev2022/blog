@@ -1,5 +1,6 @@
 import '../globals.css';
 import { poppins } from '../fonts';
+import Aside from './components/Aside';
 
 export const metadata = {
   title: 'Luis Cervantes - Studio',
@@ -13,7 +14,10 @@ export default function StudioLayout({
 }) {
   return (
     <html lang='en' className={poppins.className}>
-      <body>{children}</body>
+      <body className='m-0'>
+        <Aside />
+        {children}
+      </body>
     </html>
   );
 }
