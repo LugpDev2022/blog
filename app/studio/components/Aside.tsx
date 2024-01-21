@@ -16,7 +16,7 @@ const Aside: React.FC = () => {
   }
 
   return (
-    <aside className='h-svh w-[240px] items-center bg-white/5 inline-flex flex-col'>
+    <aside className='h-svh w-[240px] fixed items-center bg-white/5 inline-flex flex-col '>
       <header className='pt-5'>
         <Link href='/studio' className='flex text-cyan-300'>
           <Image src={logo} alt='Logo' height={55} width={158} />
