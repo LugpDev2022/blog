@@ -1,24 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { match } from '@formatjs/intl-localematcher';
-import Negotiator from 'negotiator';
-
-const locales = ['en', 'es'];
-export const defaultLocale = 'en';
-
-function getLocale(request: Request): string {
-  const headers = new Headers(request.headers);
-  const acceptLanguage = headers.get('accept-language');
-  if (acceptLanguage) {
-    headers.set('accept-language', acceptLanguage.replaceAll('_', '-'));
-  }
-
-  const headersObject = Object.fromEntries(headers.entries());
-  const languages = new Negotiator({ headers: headersObject }).languages();
-  return match(languages, locales, defaultLocale);
-}
+import { getLocale } from './app/utils/getLocale';
 
 export function middleware(request: NextRequest) {
-  const locale = getLocale(request) ?? defaultLocale;
+  const locale = getLocale(request);
   const { pathname } = request.nextUrl;
 
   if (pathname === '/es' || pathname.includes('/es/'))
@@ -27,17 +11,17 @@ export function middleware(request: NextRequest) {
   if (pathname === '/studio' || pathname.includes('/studio/')) {
     const token = request.cookies.get('authCookie');
 
-    const isTokenValid = token ? true : false;
+    const isTokenValid = false;
 
     if (!isTokenValid) {
-      if (pathname !== '/studio/login') {
-        return NextResponse.redirect(new URL('/studio/login', request.nextUrl));
+      if (pathname !== '/login') {
+        return NextResponse.redirect(new URL('/login', request.nextUrl));
       }
 
       return NextResponse.next();
     }
 
-    if (pathname === '/studio/login') {
+    if (pathname === '/login') {
       return NextResponse.redirect(new URL('/studio', request.nextUrl));
     }
 
