@@ -25,7 +25,7 @@ const getArticles = async () => {
   return articles;
 };
 
-const LastestArticles: React.FC<Props> = async ({ lang }) => {
+const LatestArticles: React.FC<Props> = async ({ lang }) => {
   const dict = await getDictionary(lang);
   const articles = await getArticles();
 
@@ -57,4 +57,4 @@ const LastestArticles: React.FC<Props> = async ({ lang }) => {
   );
 };
 
-export default LastestArticles;
+export default LatestArticles;
