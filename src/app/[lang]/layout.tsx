@@ -20,10 +20,6 @@ export const metadata: Metadata = {
   },
 };
 
-export async function generateStaticParams() {
-  return [{ lang: 'en' }, { lang: 'es' }];
-}
-
 export default function Root({
   children,
   params,
