@@ -1,5 +1,5 @@
 import Aside from './components/Aside';
-import LastestArticles from './components/LastestArticles';
+import LatestArticles from './components/LatestArticles';
 import { getDictionary } from './lib/getDictionary';
 import type { Locale } from '@/src/types/shared.types';
 
@@ -14,7 +14,7 @@ const Home: React.FC<Props> = async ({ params: { lang } }) => {
     <main className='home-layout'>
       <div className='latest-container'>
         <h2 className='subtitle'>{dict.latest.subtitle}</h2>
-        {/* <LastestArticles lang={lang} /> */}
+        <LatestArticles lang={lang} />
       </div>
       <Aside lang={lang} />
     </main>
