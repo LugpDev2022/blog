@@ -17,16 +17,15 @@ type ArticleData = {
 };
 
 const getArticles = async () => {
-  const resp = await fetch(`http://localhost:3000/api/articles/latest`, {
-    next: { revalidate: 600 },
-  });
-
-  console.log(await resp.json());
-  // const { articles } = await resp.json();
-  return [];
+  const resp = await fetch(
+    `${process.env.CURRENT_DOMAIN}/api/articles/latest`,
+    { next: { revalidate: 600 } }
+  );
+  const { articles } = await resp.json();
+  return articles;
 };
 
-const LatestArticles: React.FC<Props> = async ({ lang }) => {
+const LastestArticles: React.FC<Props> = async ({ lang }) => {
   const dict = await getDictionary(lang);
   const articles = await getArticles();
 
@@ -58,4 +57,4 @@ const LatestArticles: React.FC<Props> = async ({ lang }) => {
   );
 };
 
-export default LatestArticles;
+export default LastestArticles;
