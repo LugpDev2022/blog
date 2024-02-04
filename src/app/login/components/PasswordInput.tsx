@@ -1,11 +1,14 @@
-'use client';
-
-import { useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 
 import Eye from '@/src/icons/Eye';
 import ClosedEye from '@/src/icons/ClosedEye';
 
-const PasswordInput = () => {
+interface Props {
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  value: string;
+}
+
+const PasswordInput: React.FC<Props> = ({ onChange, value }) => {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
@@ -17,6 +20,8 @@ const PasswordInput = () => {
         name='password'
         placeholder='Your Password'
         autoComplete='off'
+        onChange={onChange}
+        value={value}
       />
       <button
         type='button'

@@ -1,9 +1,9 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import PasswordInput from './components/PasswordInput';
 import logo from '@/public/logo.svg';
 import Arrow from '@/src/icons/Arrow';
+import LogInForm from './components/LogInForm';
 
 const StudioLogin = () => {
   return (
@@ -14,27 +14,7 @@ const StudioLogin = () => {
           <Image src={logo} alt='Logo' width={55} height={55} />
         </h1>
 
-        <form>
-          <div className='login-input'>
-            <label htmlFor='email'>Email</label>
-            <input
-              type='text'
-              id='email'
-              name='email'
-              placeholder='email@example.com'
-              autoComplete='off'
-            />
-          </div>
-
-          <PasswordInput />
-
-          <button
-            type='submit'
-            className='text-center px-[20px] py-[17px] w-full border-[1px] border-cyan-300 rounded-[10px] text-xl text-cyan-300 mb-[20px] hover:bg-cyan-300 hover:text-[#090f3f] transition'
-          >
-            LOG IN
-          </button>
-        </form>
+        <LogInForm />
 
         <Link href='/' className='see-more-link'>
           Return to blog page <Arrow />
