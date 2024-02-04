@@ -18,7 +18,8 @@
   fill: rgb(103 232 249);
 }
 
-.primaryBtn:disabled {
+.primaryBtn:disabled,
+.deleteBtn:disabled {
   color: #545353;
   fill: #545353;
   border-color: #545353;
@@ -58,13 +59,13 @@
 }
 
 .selectContainer::after {
-  content: '';
-  position: absolute;
-  right: 1rem;
-  pointer-events: none;
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
   border-top: 6px solid white;
+  content: '';
+  pointer-events: none;
+  position: absolute;
   right: 15px;
+  right: 1rem;
   top: 45%;
 }
