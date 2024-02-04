@@ -1,12 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getLocale } from './utils/getLocale';
 import { getToken } from 'next-auth/jwt';
 
 export default async function middleware(request: NextRequest) {
-  const locale = getLocale(request) ?? 'en';
   const { pathname } = request.nextUrl;
-
-  if (pathname.startsWith('/es')) return NextResponse.next();
 
   const token = await getToken({ req: request });
 
@@ -24,7 +20,9 @@ export default async function middleware(request: NextRequest) {
     return NextResponse.next();
   }
 
-  const newUrl = new URL(`/${locale}${pathname}`, request.nextUrl);
+  if (pathname.startsWith('/es')) return NextResponse.next();
+
+  const newUrl = new URL(`/en${pathname}`, request.nextUrl);
 
   return NextResponse.rewrite(newUrl);
 }
