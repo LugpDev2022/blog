@@ -4,8 +4,10 @@ import { useForm } from '@/src/hooks/useForm';
 import PasswordInput from './PasswordInput';
 import { FormEventHandler } from 'react';
 import { signIn } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
 const LogInForm = () => {
+  const router = useRouter();
   const { onInputChange, email, password } = useForm({
     email: '',
     password: '',
@@ -20,7 +22,9 @@ const LogInForm = () => {
       redirect: false,
     });
 
-    console.log(resp);
+    if (resp?.status !== 200) return;
+
+    router.push('/studio');
   };
 
   return (

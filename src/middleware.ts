@@ -1,25 +1,24 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getLocale } from './utils/getLocale';
+import { getToken } from 'next-auth/jwt';
 
-export function middleware(request: NextRequest) {
+export default async function middleware(request: NextRequest) {
   const locale = getLocale(request) ?? 'en';
   const { pathname } = request.nextUrl;
 
-  if (pathname === '/es' || pathname.includes('/es/'))
-    return NextResponse.next();
+  if (pathname.startsWith('/es')) return NextResponse.next();
 
-  const token = request.cookies.get('authCookie');
-  const isTokenValid = true;
+  const token = await getToken({ req: request });
 
   if (pathname === '/login') {
-    if (isTokenValid) {
+    if (token) {
       return NextResponse.redirect(new URL('/studio', request.nextUrl));
     }
     return NextResponse.next();
   }
 
-  if (pathname === '/studio' || pathname.includes('/studio/')) {
-    if (!isTokenValid) {
+  if (pathname.startsWith('/studio')) {
+    if (!token) {
       return NextResponse.redirect(new URL('/login', request.nextUrl));
     }
     return NextResponse.next();
