@@ -21,7 +21,7 @@ const Nav = () => {
         <NavItem href='/drafts' isActive={pathname.includes('/drafts')}>
           <DraftIcon /> Drafts
         </NavItem>
-        <NavItem href='/editor' isActive={pathname.includes('/editor')}>
+        <NavItem href='/editor/en' isActive={pathname.includes('/editor')}>
           <EditorIcon /> Editor
         </NavItem>
 
