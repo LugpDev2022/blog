@@ -7,7 +7,7 @@ import NavItem from './NavItem';
 import HomeIcon from '../icons/HomeIcon';
 import DraftIcon from '../icons/DraftIcon';
 import EditorIcon from '../icons/EditorIcon';
-import LogoutIcon from '../icons/LogoutIcon';
+import LogoutBtn from './LogoutBtn';
 
 const Nav = () => {
   const pathname = usePathname();
@@ -26,9 +26,7 @@ const Nav = () => {
         </NavItem>
 
         <li>
-          <button className='flex w-full gap-5 py-[10px] pl-5 items-center transition duration-300 hover:bg-[#ff0000]'>
-            <LogoutIcon /> Logout
-          </button>
+          <LogoutBtn />
         </li>
       </ul>
     </nav>
