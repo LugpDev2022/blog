@@ -1,36 +1,10 @@
 'use client';
 
-import { FormEventHandler, useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { signIn } from 'next-auth/react';
-
+import { useLoginForm } from '../hooks/useLoginForm';
 import PasswordInput from './PasswordInput';
-import { useForm } from '@/src/hooks/useForm';
 
 const LogInForm = () => {
-  const router = useRouter();
-  const [isCharging, setIsCharging] = useState(false);
-  const { onInputChange, email, password } = useForm({
-    email: '',
-    password: '',
-  });
-
-  const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
-    e.preventDefault();
-    setIsCharging(true);
-
-    const resp = await signIn('credentials', {
-      email,
-      password,
-      redirect: false,
-    });
-
-    if (resp?.status === 200) {
-      router.push('/studio');
-    }
-
-    setIsCharging(false);
-  };
+  const { isVerifying, handleChange, handleSubmit, values } = useLoginForm();
 
   return (
     <form onSubmit={handleSubmit}>
@@ -40,16 +14,16 @@ const LogInForm = () => {
           autoComplete='off'
           id='email'
           name='email'
-          onChange={onInputChange}
+          onChange={handleChange}
           placeholder='email@example.com'
           type='text'
-          value={email}
+          value={values.email}
         />
       </div>
 
-      <PasswordInput value={password} onChange={onInputChange} />
+      <PasswordInput value={values.password} onChange={handleChange} />
 
-      <button type='submit' className='login-btn' disabled={isCharging}>
+      <button type='submit' className='login-btn' disabled={isVerifying}>
         LOG IN
       </button>
     </form>
