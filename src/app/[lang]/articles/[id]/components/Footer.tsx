@@ -1,5 +1,5 @@
 import Article from '@/src/app/[lang]/components/Article';
-import { getDictionary } from '@/src/app/[lang]/lib/getDictionary';
+import { getDictionary } from '@/src/app/[lang]/utils/getDictionary';
 import type { BlogArticle, Locale } from '@/src/types/shared.types';
 
 interface Props {

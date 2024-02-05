@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 import Article from './Article';
 import Arrow from '@/src/icons/Arrow';
-import { getDictionary } from '../lib/getDictionary';
+import { getDictionary } from '../utils/getDictionary';
 import { formatDate, buildArticleUrl } from '../../utils';
 import type { Locale } from '@/src/types/shared.types';
 

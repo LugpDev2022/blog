@@ -1,5 +1,5 @@
 import EditorNav from './components/EditorNav';
-import { getDictionary } from '@/src/app/[lang]/lib/getDictionary';
+import { getDictionary } from '@/src/app/[lang]/utils/getDictionary';
 import { Locale } from '@/src/types/shared.types';
 
 export async function generateStaticParams() {

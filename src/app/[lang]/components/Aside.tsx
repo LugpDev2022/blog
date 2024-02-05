@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 import me from '@/public/me.jpg';
 import { Locale } from '@/src/types/shared.types';
-import { getDictionary } from '../lib/getDictionary';
+import { getDictionary } from '../utils/getDictionary';
 
 import linkedin from '@/public/contacts/linkedin.svg';
 import github from '@/public/contacts/github.svg';

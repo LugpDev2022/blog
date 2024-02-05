@@ -1,5 +1,5 @@
 import ArticlesSection from './components/ArticlesSection';
-import { getDictionary } from '../lib/getDictionary';
+import { getDictionary } from '../utils/getDictionary';
 import { Locale } from '@/src/types/shared.types';
 
 interface Props {
