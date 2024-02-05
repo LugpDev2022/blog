@@ -6,9 +6,10 @@ import ClosedEye from '@/src/icons/ClosedEye';
 interface Props {
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
   value: string;
+  disabled?: boolean;
 }
 
-const PasswordInput: React.FC<Props> = ({ onChange, value }) => {
+const PasswordInput: React.FC<Props> = ({ onChange, value, disabled }) => {
   const [showPassword, setShowPassword] = useState(false);
 
   return (
@@ -22,6 +23,7 @@ const PasswordInput: React.FC<Props> = ({ onChange, value }) => {
         autoComplete='off'
         onChange={onChange}
         value={value}
+        disabled={disabled}
       />
       <button
         type='button'

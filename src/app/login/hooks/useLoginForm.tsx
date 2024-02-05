@@ -1,4 +1,4 @@
-import { FormEventHandler, useState } from 'react';
+import { ChangeEvent, FormEventHandler, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { signIn } from 'next-auth/react';
 
@@ -6,7 +6,11 @@ import { useForm } from '@/src/hooks/useForm';
 
 export const useLoginForm = () => {
   const router = useRouter();
-  const [isVerifying, setIsVerifying] = useState(false);
+  const [formState, setFormState] = useState({
+    isVerifying: false,
+    error: '',
+  });
+
   const { onInputChange, email, password } = useForm({
     email: '',
     password: '',
@@ -14,7 +18,22 @@ export const useLoginForm = () => {
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
-    setIsVerifying(true);
+
+    setFormState({ isVerifying: true, error: '' });
+
+    if (email.length < 1 || password.length < 1) {
+      return setFormState({
+        isVerifying: false,
+        error: 'Email and password are required',
+      });
+    }
+
+    if (!email.includes('@')) {
+      return setFormState({
+        isVerifying: false,
+        error: 'Introduce a valid email',
+      });
+    }
 
     const resp = await signIn('credentials', {
       email,
@@ -22,16 +41,24 @@ export const useLoginForm = () => {
       redirect: false,
     });
 
-    if (resp?.status === 200) {
-      router.push('/studio');
+    if (resp?.status !== 200) {
+      return setFormState({
+        isVerifying: false,
+        error: 'Email or password incorrect',
+      });
     }
 
-    setIsVerifying(false);
+    router.push('/studio');
+  };
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setFormState((state) => ({ ...state, error: '' }));
+    onInputChange(e);
   };
 
   return {
-    isVerifying,
-    handleChange: onInputChange,
+    formState,
+    handleChange,
     handleSubmit,
     values: {
       email,

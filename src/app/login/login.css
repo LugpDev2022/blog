@@ -54,3 +54,14 @@
   background-color: transparent;
   color: #545353;
 }
+
+/* Form Error */
+.login-form-error label,
+.login-form-error input {
+  border-color: #ff0000 !important;
+  transition: all 200ms;
+}
+
+.login-form-error label {
+  color: #ff0000;
+}
