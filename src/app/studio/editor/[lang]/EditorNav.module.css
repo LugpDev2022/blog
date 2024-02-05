@@ -19,10 +19,12 @@
 }
 
 .primaryBtn:disabled,
-.deleteBtn:disabled {
+.deleteBtn:disabled,
+.deleteBtn:hover:disabled {
   color: #545353;
   fill: #545353;
   border-color: #545353;
+  background-color: transparent;
 }
 
 .deleteBtn {

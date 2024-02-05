@@ -3,10 +3,11 @@ import styles from '../EditorNav.module.css';
 import SaveIcon from '../../../icons/SaveIcon';
 import TrashIcon from '../../../icons/TrashIcon';
 import UploadIcon from '../../../icons/UploadIcon';
+import LanguageSwitch from './LanguageSwitch';
 
 const EditorNav = () => {
   return (
-    <nav className='mt-[30px]'>
+    <nav className='mt-[30px] flex justify-between'>
       <ul className='flex gap-[30px]'>
         <li className={styles.selectContainer}>
           <select
@@ -34,6 +35,8 @@ const EditorNav = () => {
           </button>
         </li>
       </ul>
+
+      <LanguageSwitch />
     </nav>
   );
 };
