@@ -1,26 +1,56 @@
+/* Login Inputs */
 .login-input {
-  position: relative;
   margin-bottom: 50px;
+  position: relative;
 }
 
 .login-input > label {
+  background-color: #090f3f;
+  border-left: 1.5px solid #67e8f9;
+  border-right: 1.5px solid #67e8f9;
+  font-size: 18px;
+  left: 36px;
+  padding: 0 10px;
   position: absolute;
   top: -13.5px;
-  left: 36px;
-  font-size: 18px;
-  border-right: 1.5px solid #67e8f9;
-  border-left: 1.5px solid #67e8f9;
-  padding: 0 10px;
-  background-color: #090f3f;
 }
 
 .login-input > input {
-  height: 100%;
   background-color: transparent;
-  border: 1.5px solid #67e8f9;
-  padding: 20px 15px;
   border-radius: 10px;
-  outline: none;
+  border: 1.5px solid #67e8f9;
   font-weight: 300;
+  height: 100%;
+  outline: none;
+  padding: 20px 15px;
   width: 100%;
+}
+
+/* Login Button */
+.login-btn {
+  border-radius: 10px;
+  border: 1px solid #67e8f9;
+  color: #67e8f9;
+  font-size: 20px;
+  margin-bottom: 20px;
+  padding: 20px 17px;
+  text-align: center;
+  transition: 200ms;
+  width: 100%;
+}
+
+.login-btn:hover {
+  background-color: #67e8f9;
+  color: #090f3f;
+}
+
+.login-btn:disabled {
+  background-color: transparent;
+  border: 1px solid #545353;
+  color: #545353;
+}
+
+.login-btn:disabled:hover {
+  background-color: transparent;
+  color: #545353;
 }

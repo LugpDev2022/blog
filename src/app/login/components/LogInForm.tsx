@@ -1,13 +1,15 @@
 'use client';
 
-import { useForm } from '@/src/hooks/useForm';
-import PasswordInput from './PasswordInput';
-import { FormEventHandler } from 'react';
-import { signIn } from 'next-auth/react';
+import { FormEventHandler, useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { signIn } from 'next-auth/react';
+
+import PasswordInput from './PasswordInput';
+import { useForm } from '@/src/hooks/useForm';
 
 const LogInForm = () => {
   const router = useRouter();
+  const [isCharging, setIsCharging] = useState(false);
   const { onInputChange, email, password } = useForm({
     email: '',
     password: '',
@@ -15,6 +17,7 @@ const LogInForm = () => {
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
+    setIsCharging(true);
 
     const resp = await signIn('credentials', {
       email,
@@ -22,9 +25,11 @@ const LogInForm = () => {
       redirect: false,
     });
 
-    if (resp?.status !== 200) return;
+    if (resp?.status === 200) {
+      router.push('/studio');
+    }
 
-    router.push('/studio');
+    setIsCharging(false);
   };
 
   return (
@@ -44,10 +49,7 @@ const LogInForm = () => {
 
       <PasswordInput value={password} onChange={onInputChange} />
 
-      <button
-        type='submit'
-        className='text-center px-[20px] py-[17px] w-full border-[1px] border-cyan-300 rounded-[10px] text-xl text-cyan-300 mb-[20px] hover:bg-cyan-300 hover:text-[#090f3f] transition'
-      >
+      <button type='submit' className='login-btn' disabled={isCharging}>
         LOG IN
       </button>
     </form>
