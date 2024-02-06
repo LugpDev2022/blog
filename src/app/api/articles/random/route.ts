@@ -1,8 +1,11 @@
 import Article from '@/src/models/Article';
+import { connectDB } from '@/src/utils/mongoose';
 import { revalidatePath } from 'next/cache';
 import { NextResponse } from 'next/server';
 
 export const GET = async () => {
+  connectDB();
+
   const count = await Article.countDocuments();
 
   // Generate two random indices
