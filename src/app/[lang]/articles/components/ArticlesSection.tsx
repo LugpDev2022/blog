@@ -7,9 +7,12 @@ interface Props {
 }
 
 const getArticles = async () => {
-  const resp = await fetch(`${process.env.CURRENT_DOMAIN}/api/articles`, {
-    next: { revalidate: 60 },
-  });
+  const resp = await fetch(
+    `${process.env.CURRENT_DOMAIN}/api/articles/latest`,
+    {
+      next: { revalidate: 60 },
+    }
+  );
 
   const { articles } = await resp.json();
 
