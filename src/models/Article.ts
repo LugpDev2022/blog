@@ -4,21 +4,16 @@ const ArticleSchema = new Schema(
   {
     icon: {
       src: { type: String, required: true },
-      alt: {
-        es: { type: String, required: true },
-        en: { type: String, required: true },
-      },
+      alt: { type: String, required: true },
     },
 
-    translations: {
-      en: {
-        title: { type: String, required: true },
-        content: { type: String, required: true },
-      },
-      es: {
-        title: { type: String, required: true },
-        content: { type: String, required: true },
-      },
+    en: {
+      title: { type: String, required: true },
+      content: { type: String, required: true },
+    },
+    es: {
+      title: { type: String, required: true },
+      content: { type: String, required: true },
     },
   },
   { timestamps: true }
