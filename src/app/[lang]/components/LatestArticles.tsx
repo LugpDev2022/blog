@@ -3,25 +3,22 @@ import Link from 'next/link';
 import Article from './Article';
 import Arrow from '@/src/icons/Arrow';
 import { getDictionary } from '../utils/getDictionary';
-import { formatDate, buildArticleUrl } from '../../utils';
+import { buildArticleUrl, formatDate } from '../../utils';
+
 import type { Locale } from '@/src/types/shared.types';
 
 interface Props {
   lang: Locale;
 }
 
-type ArticleData = {
-  translations: any;
-  createdAt: string;
-  _id: string;
-};
-
 const getArticles = async () => {
   const resp = await fetch(
     `${process.env.CURRENT_DOMAIN}/api/articles/latest`,
-    { next: { revalidate: 600 } }
+    { next: { revalidate: 60 } }
   );
+
   const { articles } = await resp.json();
+
   return articles;
 };
 
@@ -32,20 +29,20 @@ const LatestArticles: React.FC<Props> = async ({ lang }) => {
   return (
     <>
       <ul>
-        {/* //TODO: Pass icon data  */}
-        {articles.map(({ translations, createdAt, _id }: ArticleData) => (
-          <li key={_id}>
-            <Article
-              title={translations[lang].title}
-              date={formatDate(createdAt, lang)}
-              href={buildArticleUrl(lang, _id)}
-              icon={{
-                src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/JavaScript-logo.png/768px-JavaScript-logo.png',
-                alt: 'xd',
-              }}
-            />
-          </li>
-        ))}
+        {articles.map((article: any) => {
+          const { _id, createdAt, icon } = article;
+
+          return (
+            <li key={_id}>
+              <Article
+                title={article[lang].title}
+                date={formatDate(createdAt, lang)}
+                href={buildArticleUrl(lang, _id)}
+                icon={icon}
+              />
+            </li>
+          );
+        })}
       </ul>
       <Link
         href={`/${lang === 'es' ? 'es/' : ''}articles`}
