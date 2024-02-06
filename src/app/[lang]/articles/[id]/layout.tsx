@@ -18,7 +18,7 @@ const ArticleLayout: React.FC<Props> = ({ children, params: { lang } }) => {
     <main className='article-layout'>
       {children}
 
-      {/* <Footer lang={lang} /> */}
+      <Footer lang={lang} />
     </main>
   );
 };
