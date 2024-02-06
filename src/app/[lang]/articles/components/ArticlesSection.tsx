@@ -1,3 +1,4 @@
+import { buildArticleUrl } from '@/src/app/utils';
 import Article from './Article';
 import { Locale } from '@/src/types/shared.types';
 
@@ -5,26 +6,28 @@ interface Props {
   lang: Locale;
 }
 
+const getArticles = async () => {
+  const resp = await fetch(`${process.env.CURRENT_DOMAIN}/api/articles`, {
+    next: { revalidate: 60 },
+  });
+
+  const { articles } = await resp.json();
+
+  return articles;
+};
+
 const ArticlesSection: React.FC<Props> = async ({ lang }) => {
-  let pageArticles: any = [];
-
-  try {
-    const resp = await fetch(
-      `${process.env.CURRENT_DOMAIN}/api/articles/${lang}`,
-      { cache: 'no-store' }
-    );
-
-    const { articles } = await resp.json();
-
-    pageArticles = articles;
-  } catch (e) {
-    console.log(e);
-  }
+  const articles = await getArticles();
 
   return (
     <section className='flex flex-wrap justify-between'>
-      {pageArticles.map((article: any) => (
-        <Article key={article.title} {...article} />
+      {articles.map((article: any) => (
+        <Article
+          key={article._id}
+          href={buildArticleUrl(lang, article._id)}
+          title={article[lang].title}
+          icon={article.icon}
+        />
       ))}
     </section>
   );
