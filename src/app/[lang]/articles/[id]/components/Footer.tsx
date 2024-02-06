@@ -1,6 +1,6 @@
 import Article from '@/src/app/[lang]/components/Article';
 import { getDictionary } from '@/src/app/[lang]/utils/getDictionary';
-import type { BlogArticle, Locale } from '@/src/types/shared.types';
+import type { ArticleType, Locale } from '@/src/types/shared.types';
 
 interface Props {
   lang: Locale;
@@ -21,11 +21,11 @@ const Footer: React.FC<Props> = async ({ lang }) => {
       <h4 className='footer-title'>{dict.article.otherArticles}</h4>
 
       <ul>
-        {articles.map((article: BlogArticle) => (
+        {/* {articles.map((article: ArticleType) => (
           <li key={article.title}>
             <Article {...article} />
           </li>
-        ))}
+        ))} */}
       </ul>
     </footer>
   );
