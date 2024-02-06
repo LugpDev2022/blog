@@ -5,7 +5,7 @@ import Arrow from '@/src/icons/Arrow';
 import { getDictionary } from '../utils/getDictionary';
 import { buildArticleUrl, formatDate } from '../../utils';
 
-import type { Locale } from '@/src/types/shared.types';
+import type { ArticleType, Locale } from '@/src/types/shared.types';
 
 interface Props {
   lang: Locale;
@@ -29,7 +29,7 @@ const LatestArticles: React.FC<Props> = async ({ lang }) => {
   return (
     <>
       <ul>
-        {articles.map((article: any) => {
+        {articles.map((article: ArticleType) => {
           const { _id, createdAt, icon } = article;
 
           return (

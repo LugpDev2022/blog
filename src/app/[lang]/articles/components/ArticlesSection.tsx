@@ -1,6 +1,6 @@
 import { buildArticleUrl } from '@/src/app/utils';
 import Article from './Article';
-import { Locale } from '@/src/types/shared.types';
+import type { ArticleType, Locale } from '@/src/types/shared.types';
 
 interface Props {
   lang: Locale;
@@ -21,7 +21,7 @@ const ArticlesSection: React.FC<Props> = async ({ lang }) => {
 
   return (
     <section className='flex flex-wrap justify-between'>
-      {articles.map((article: any) => (
+      {articles.map((article: ArticleType) => (
         <Article
           key={article._id}
           href={buildArticleUrl(lang, article._id)}
