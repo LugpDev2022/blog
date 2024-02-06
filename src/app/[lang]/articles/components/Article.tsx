@@ -1,9 +1,16 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import type { BlogArticle } from '@/src/types/shared.types';
+interface Props {
+  title: string;
+  icon: {
+    src: string;
+    alt: string;
+  };
+  href: string;
+}
 
-const Article = ({ title, icon, date, href }: BlogArticle) => {
+const Article: React.FC<Props> = ({ title, icon, href }) => {
   return (
     <Link
       href={href}

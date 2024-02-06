@@ -1,27 +1,57 @@
 'use client';
 
-import { createContext } from 'react';
+import { ChangeEvent, createContext, useReducer } from 'react';
+import editorReducer from './editorReducer';
+import { Locale } from '@/src/types/shared.types';
 
 interface Props {
   children: React.ReactNode;
 }
 
-const initialState = {
+export type EditorReducerState = {
   en: {
-    title: '',
+    title: string;
+    content: string;
+  };
+  es: {
+    title: string;
+    content: string;
+  };
+};
+
+const initialState: EditorReducerState = {
+  en: {
+    title: 'Titulo en ingles',
     content: '',
   },
   es: {
-    title: '',
+    title: 'Titulo en español',
     content: '',
   },
 };
 
-export const EditorContext = createContext(initialState);
+export type EditorContext = {
+  state: EditorReducerState;
+  onTitleChange: (lang: Locale, e: ChangeEvent<HTMLInputElement>) => void;
+};
+
+export const EditorContext = createContext<EditorContext | null>(null);
 
 const EditorContextProvider: React.FC<Props> = ({ children }) => {
+  const [state, dispatch] = useReducer(editorReducer, initialState);
+
+  const onTitleChange = (
+    lang: Locale,
+    { target }: ChangeEvent<HTMLInputElement>
+  ) => {
+    dispatch({
+      type: 'EDIT_TITLE',
+      payload: { title: target.value, lang },
+    });
+  };
+
   return (
-    <EditorContext.Provider value={initialState}>
+    <EditorContext.Provider value={{ state, onTitleChange }}>
       {children}
     </EditorContext.Provider>
   );
