@@ -16,6 +16,7 @@
     "negotiator": "^0.6.3",
     "next": "14.0.4",
     "next-auth": "^4.24.5",
+    "next-mdx-remote": "^4.4.1",
     "react": "^18",
     "react-dom": "^18",
     "server-only": "^0.0.1"
