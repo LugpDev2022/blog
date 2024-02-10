@@ -34,40 +34,38 @@ const SearchBox: React.FC<Props> = ({ isSpanish }) => {
   };
 
   return (
-    <div>
-      <form className='relative hidden lg:block' onSubmit={onSubmitForm}>
-        <label htmlFor='searchBox'>
-          <Image
-            src={magGlass}
-            alt={isSpanish ? 'lupa' : 'magnifying glass'}
-            width={27}
-            height={27}
-            className='absolute top-1/2 left-[10px] transform -translate-y-1/2'
-          />
-        </label>
-
-        <input
-          type='text'
-          placeholder={isSpanish ? 'Buscar' : 'Search'}
-          className='searchBox'
-          id='searchBox'
-          name='searchBox'
-          autoComplete='off'
-          onChange={onInputChange}
-          value={searchBox}
+    <form className='relative hidden lg:block' onSubmit={onSubmitForm}>
+      <label htmlFor='searchBox'>
+        <Image
+          src={magGlass}
+          alt={isSpanish ? 'lupa' : 'magnifying glass'}
+          width={27}
+          height={27}
+          className='absolute top-1/2 left-[10px] transform -translate-y-1/2'
         />
+      </label>
 
-        <button
-          type='reset'
-          onClick={onResetForm}
-          className={`${
-            searchBox.length < 1 ? 'hidden' : 'block'
-          } absolute top-1/2 right-[10px] transform -translate-y-1/2`}
-        >
-          <Image src={closeIcon} width={20} height={20} alt='x icon' />
-        </button>
-      </form>
-    </div>
+      <input
+        type='text'
+        placeholder={isSpanish ? 'Buscar' : 'Search'}
+        className='searchBox'
+        id='searchBox'
+        name='searchBox'
+        autoComplete='off'
+        onChange={onInputChange}
+        value={searchBox}
+      />
+
+      <button
+        type='reset'
+        onClick={onResetForm}
+        className={`${
+          searchBox.length < 1 ? 'hidden' : 'block'
+        } absolute top-1/2 right-[10px] transform -translate-y-1/2`}
+      >
+        <Image src={closeIcon} width={20} height={20} alt='x icon' />
+      </button>
+    </form>
   );
 };
 
