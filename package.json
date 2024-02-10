@@ -12,6 +12,7 @@
   "dependencies": {
     "@formatjs/intl-localematcher": "^0.5.2",
     "@types/negotiator": "^0.6.3",
+    "googleapis": "^132.0.0",
     "mongoose": "^8.0.3",
     "negotiator": "^0.6.3",
     "next": "14.0.4",

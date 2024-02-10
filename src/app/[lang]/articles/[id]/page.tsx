@@ -2,12 +2,13 @@ import { MDXRemote } from 'next-mdx-remote/rsc';
 
 import { formatDate } from '@/src/app/utils';
 import { Locale } from '@/src/types/shared.types';
+import { getFileById } from '@/src/utils/googleDrive';
 
 interface Props {
   params: { lang: Locale; id: string };
 }
 
-const fetchArticle = async (id: string) => {
+const fetchArticle = async (id: string, lang: string) => {
   const resp = await fetch(
     `${process.env.CURRENT_DOMAIN}/api/articles/${id}`,
     // Revalidate each day
@@ -20,11 +21,13 @@ const fetchArticle = async (id: string) => {
     throw new Error(data.message);
   }
 
-  return data;
+  const content = await getFileById(data[lang].driveId);
+
+  return { ...data, content };
 };
 
 const ArticlePage: React.FC<Props> = async ({ params: { lang, id } }) => {
-  const article = await fetchArticle(id);
+  const article = await fetchArticle(id, lang);
 
   return (
     <>
@@ -34,7 +37,7 @@ const ArticlePage: React.FC<Props> = async ({ params: { lang, id } }) => {
       </h2>
       <hr />
 
-      <MDXRemote source={article[lang].content} />
+      <MDXRemote source={article.content} />
     </>
   );
 };

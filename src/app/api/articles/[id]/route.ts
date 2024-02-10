@@ -16,7 +16,10 @@ export const GET = async (
 
     if (!article) throw new Error('Article not found');
 
-    return NextResponse.json(article);
+    const { icon, es, en, createdAt } = article;
+    const returnedArticle = { icon, es, en, createdAt };
+
+    return NextResponse.json(returnedArticle);
   } catch (e: any) {
     return NextResponse.json({ message: e.message }, { status: 404 });
   }
