@@ -9,11 +9,11 @@ const ArticleSchema = new Schema(
 
     en: {
       title: { type: String, required: true },
-      content: { type: String, required: true },
+      driveId: { type: String, required: true },
     },
     es: {
       title: { type: String, required: true },
-      content: { type: String, required: true },
+      driveId: { type: String, required: true },
     },
   },
   { timestamps: true }
