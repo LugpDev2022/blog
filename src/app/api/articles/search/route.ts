@@ -12,5 +12,5 @@ export const POST = async (req: NextRequest) => {
 
   const articles = await Article.find({ $or: [query] }).limit(2);
 
-  return NextResponse.json({ articles });
+  return NextResponse.json(articles);
 };
