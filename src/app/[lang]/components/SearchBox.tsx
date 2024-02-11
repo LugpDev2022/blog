@@ -6,7 +6,7 @@ import { useForm } from '@/src/hooks/useForm';
 
 import magGlass from '@/public/mag-glass.png';
 import closeIcon from '@/public/x.png';
-import { useContext, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import { SearchContext, SearchContextType } from '../context/SearchContext';
 
 interface Props {
@@ -19,8 +19,8 @@ const SearchBox: React.FC<Props> = ({ isSpanish }) => {
     searchBox: '',
   });
 
-  const onSubmitForm = async (e: React.SyntheticEvent) => {
-    e.preventDefault();
+  const getArticles = async () => {
+    if (!searchBox) return setResults([]);
 
     const resp = await fetch('/api/articles/search/', {
       method: 'POST',
@@ -34,8 +34,20 @@ const SearchBox: React.FC<Props> = ({ isSpanish }) => {
     setResults(data);
   };
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      getArticles();
+    }, 500);
+
+    return () => clearTimeout(timer);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchBox]);
+
   return (
-    <form className='relative hidden lg:block' onSubmit={onSubmitForm}>
+    <form
+      className='relative hidden lg:block'
+      onSubmit={(e) => e.preventDefault()}
+    >
       <label htmlFor='searchBox'>
         <Image
           src={magGlass}
