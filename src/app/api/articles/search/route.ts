@@ -8,7 +8,7 @@ export const POST = async (req: NextRequest) => {
   const { lang, title } = await req.json();
 
   const query: Record<string, any> = {};
-  query[`${lang}.title`] = { $regex: title };
+  query[`${lang}.title`] = { $regex: title, $options: 'i' };
 
   const articles = await Article.find({ $or: [query] }).limit(2);
 
