@@ -20,7 +20,7 @@ const ResultsContainer: React.FC<Props> = ({ lang }) => {
       {results.map((result) => (
         <SearchResult
           key={result._id}
-          href={buildArticleUrl('es', result._id)}
+          href={buildArticleUrl(lang, result._id)}
           title={result[lang].title}
           icon={{ src: result.icon.src, alt: result.icon.alt }}
         />
