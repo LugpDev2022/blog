@@ -6,15 +6,19 @@ import { useForm } from '@/src/hooks/useForm';
 
 import magGlass from '@/public/mag-glass.png';
 import closeIcon from '@/public/x.png';
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { SearchContext, SearchContextType } from '../context/SearchContext';
+import { ArticleType } from '@/src/types/shared.types';
 
 interface Props {
   isSpanish: boolean;
 }
 
 const SearchBox: React.FC<Props> = ({ isSpanish }) => {
-  const { setResults } = useContext(SearchContext) as SearchContextType;
+  const [resultsBackup, setResultsBackup] = useState<ArticleType[]>([]);
+  const { setResults, results } = useContext(
+    SearchContext
+  ) as SearchContextType;
   const { onResetForm, onInputChange, searchBox } = useForm({
     searchBox: '',
   });
@@ -43,6 +47,17 @@ const SearchBox: React.FC<Props> = ({ isSpanish }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchBox]);
 
+  const onBlur = () => {
+    setTimeout(() => {
+      setResultsBackup(results);
+      setResults([]);
+    }, 500);
+  };
+
+  const onFocus = () => {
+    setResults(resultsBackup);
+  };
+
   return (
     <form
       className='relative hidden lg:block'
@@ -67,6 +82,8 @@ const SearchBox: React.FC<Props> = ({ isSpanish }) => {
         autoComplete='off'
         onChange={onInputChange}
         value={searchBox}
+        onBlur={onBlur}
+        onFocus={onFocus}
       />
 
       <button

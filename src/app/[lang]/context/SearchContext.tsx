@@ -9,13 +9,13 @@ interface Props {
 
 export type SearchContextType = {
   results: ArticleType[];
-  setResults: Dispatch<SetStateAction<never[]>>;
+  setResults: Dispatch<SetStateAction<ArticleType[]>>;
 };
 
 export const SearchContext = createContext<SearchContextType | null>(null);
 
 const SearchContextProvider: React.FC<Props> = ({ children }) => {
-  const [results, setResults] = useState([]);
+  const [results, setResults] = useState<ArticleType[]>([]);
 
   return (
     <SearchContext.Provider value={{ results, setResults }}>
