@@ -6,14 +6,15 @@ import { useForm } from '@/src/hooks/useForm';
 
 import magGlass from '@/public/mag-glass.png';
 import closeIcon from '@/public/x.png';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { SearchContext, SearchContextType } from '../context/SearchContext';
 
 interface Props {
   isSpanish: boolean;
 }
 
 const SearchBox: React.FC<Props> = ({ isSpanish }) => {
-  const [results, setResults] = useState([]);
+  const { setResults } = useContext(SearchContext) as SearchContextType;
   const { onResetForm, onInputChange, searchBox } = useForm({
     searchBox: '',
   });
