@@ -1,6 +1,7 @@
 'use client';
 
 import { useContext } from 'react';
+
 import SearchResult from './SearchResult';
 import { SearchContext, SearchContextType } from '../context/SearchContext';
 import { buildArticleUrl } from '../../utils';

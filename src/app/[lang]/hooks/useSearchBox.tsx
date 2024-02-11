@@ -1,8 +1,7 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 
 import { useForm } from '@/src/hooks/useForm';
 import { SearchContext, SearchContextType } from '../context/SearchContext';
-import { ArticleType } from '@/src/types/shared.types';
 
 const useSearchBox = (isSpanish: boolean) => {
   const { setResults } = useContext(SearchContext) as SearchContextType;
@@ -13,7 +12,7 @@ const useSearchBox = (isSpanish: boolean) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       getArticles();
-    }, 500);
+    }, 100);
 
     return () => clearTimeout(timer);
     // eslint-disable-next-line react-hooks/exhaustive-deps

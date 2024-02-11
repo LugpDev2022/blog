@@ -1,7 +1,8 @@
 'use client';
 
-import { ArticleType } from '@/src/types/shared.types';
 import { Dispatch, SetStateAction, createContext, useState } from 'react';
+
+import { ArticleType } from '@/src/types/shared.types';
 
 interface Props {
   children: React.ReactNode;
