@@ -1,15 +1,6 @@
 .article-layout {
   max-width: 850px;
   margin: auto;
-}
-
-.article-footer {
-  padding: 0;
-  margin-top: 70px;
-  margin-bottom: 30px;
-}
-
-.article-layout {
   font-weight: 300;
   font-size: 18px;
 }
@@ -23,9 +14,10 @@
   margin-bottom: 10px;
 }
 
-.article-subtitle {
-  margin-top: 40px;
-  font-weight: 800;
+.article-footer {
+  padding: 0;
+  margin-top: 70px;
+  margin-bottom: 30px;
 }
 
 .footer-title {
@@ -34,12 +26,26 @@
   margin-bottom: 10px;
 }
 
-.article-p {
-  text-align: justify;
-}
-
 hr {
   height: 1px;
   background-color: #67e8f9;
   border: 0;
+}
+
+.article-wrapper {
+  h2 {
+    margin-top: 40px;
+    font-weight: 800;
+  }
+
+  p {
+    text-align: justify;
+  }
+
+  pre {
+    background-color: #060a26;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 10px;
+  }
 }

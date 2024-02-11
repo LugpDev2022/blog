@@ -37,7 +37,9 @@ const ArticlePage: React.FC<Props> = async ({ params: { lang, id } }) => {
       </h2>
       <hr />
 
-      <MDXRemote source={article.content} />
+      <div className='article-wrapper'>
+        <MDXRemote source={article.content} />
+      </div>
     </>
   );
 };
