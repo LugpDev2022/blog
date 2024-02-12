@@ -1,5 +1,8 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+
 import Article from '@/src/app/[lang]/components/Article';
-import { getDictionary } from '@/src/app/[lang]/utils/getDictionary';
 import { buildArticleUrl, formatDate } from '@/src/app/utils';
 import type { ArticleType, Locale } from '@/src/types/shared.types';
 
@@ -7,20 +10,26 @@ interface Props {
   lang: Locale;
 }
 
-const Footer: React.FC<Props> = async ({ lang }) => {
-  const dict = await getDictionary(lang);
+const Footer: React.FC<Props> = ({ lang }) => {
+  const [articles, setArticles] = useState([]);
 
-  const resp = await fetch(
-    `${process.env.CURRENT_DOMAIN}/api/articles/random`,
-    // Revalidate each day
-    { next: { revalidate: 86400 } }
-  );
+  useEffect(() => {
+    const fetchArticles = async () => {
+      const resp = await fetch('/api/articles/random', { cache: 'no-cache' });
 
-  const { articles } = await resp.json();
+      const { articles } = await resp.json();
+
+      setArticles(articles);
+    };
+
+    fetchArticles();
+  }, []);
 
   return (
     <footer className='article-footer'>
-      <h4 className='footer-title'>{dict.article.otherArticles}</h4>
+      <h4 className='footer-title'>
+        {lang == 'es' ? 'Otros artículos' : 'Other articles'}
+      </h4>
 
       <ul>
         {articles.map((article: ArticleType) => {

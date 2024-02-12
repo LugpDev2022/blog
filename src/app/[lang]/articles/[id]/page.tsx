@@ -32,7 +32,7 @@ const ArticlePage: React.FC<Props> = async ({ params: { lang, id } }) => {
   return (
     <>
       <h1 className='article-title'>{article[lang].title}</h1>
-      <h2 className='article-info'>
+      <h2>
         <time>{formatDate(article.createdAt, lang)}</time> - Luis Cervantes
       </h2>
       <hr />

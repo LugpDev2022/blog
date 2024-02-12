@@ -10,10 +10,6 @@
   font-size: 24px;
 }
 
-.article-info {
-  margin-bottom: 10px;
-}
-
 .article-footer {
   padding: 0;
   margin-top: 70px;
@@ -30,6 +26,7 @@ hr {
   height: 1px;
   background-color: #67e8f9;
   border: 0;
+  margin: 10px 0;
 }
 
 .article-wrapper {
@@ -47,5 +44,10 @@ hr {
     margin: 20px 0;
     padding: 20px;
     border-radius: 10px;
+  }
+
+  a {
+    color: #67e8f9;
+    text-decoration: underline solid #67e8f9;
   }
 }
