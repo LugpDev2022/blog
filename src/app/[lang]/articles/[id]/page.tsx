@@ -1,30 +1,24 @@
 import { MDXRemote } from 'next-mdx-remote/rsc';
 
 import { formatDate } from '@/src/app/utils';
+import { fetchArticle } from './utils/fetchArticle';
 import { Locale } from '@/src/types/shared.types';
-import { getFileById } from '@/src/utils/googleDrive';
 
 interface Props {
   params: { lang: Locale; id: string };
 }
 
-const fetchArticle = async (id: string, lang: string) => {
-  const resp = await fetch(
-    `${process.env.CURRENT_DOMAIN}/api/articles/${id}`,
-    // Revalidate each day
-    { next: { revalidate: 86400 } }
-  );
+export async function generateMetadata({
+  params: { lang, id },
+}: {
+  params: { lang: string; id: string };
+}) {
+  const article = await fetchArticle(id, lang);
 
-  const data = await resp.json();
-
-  if (resp.status !== 200) {
-    throw new Error(data.message);
-  }
-
-  const content = await getFileById(data[lang].driveId);
-
-  return { ...data, content };
-};
+  return {
+    title: article[lang].title,
+  };
+}
 
 const ArticlePage: React.FC<Props> = async ({ params: { lang, id } }) => {
   const article = await fetchArticle(id, lang);
