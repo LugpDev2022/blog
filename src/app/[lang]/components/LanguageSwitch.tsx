@@ -26,7 +26,7 @@ const LanguageSwitch: React.FC<Props> = ({ isSpanish }) => {
   };
 
   return (
-    <div className='flex items-center gap-2'>
+    <div className='flex items-center gap-2 md:order-1 md:ml-[30px]'>
       <GrLanguage size={24} />
 
       <select name='lang' className='bg-[#090f3f]' onChange={handleChange}>

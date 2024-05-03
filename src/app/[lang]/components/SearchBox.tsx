@@ -15,7 +15,10 @@ const SearchBox: React.FC<Props> = ({ isSpanish }) => {
   const { onChange, onBlur, onFocus, onResetForm } = inputHandlers;
 
   return (
-    <form className='relative' onSubmit={(e) => e.preventDefault()}>
+    <form
+      className='relative w-full mt-5 md:w-[300px] md:mt-0'
+      onSubmit={(e) => e.preventDefault()}
+    >
       <label htmlFor='searchBox'>
         <Image
           alt={isSpanish ? 'lupa' : 'magnifying glass'}

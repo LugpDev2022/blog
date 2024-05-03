@@ -4,7 +4,8 @@ import { useForm } from '@/src/hooks/useForm';
 import { SearchContext, SearchContextType } from '../context/SearchContext';
 
 const useSearchBox = (isSpanish: boolean) => {
-  const { setResults } = useContext(SearchContext) as SearchContextType;
+  // const { setResults } = useContext(SearchContext) as SearchContextType;
+  const setResults = (a: any) => {};
   const { onResetForm, onInputChange, searchBox } = useForm({
     searchBox: '',
   });

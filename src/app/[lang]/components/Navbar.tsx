@@ -18,20 +18,16 @@ const Navbar: React.FC<Props> = ({ lang }) => {
 
   return (
     <header className='navbar backdrop-blur-sm'>
-      <nav className='flex justify-between'>
-        <Link href={`/${lang === 'en' ? '' : 'es'}`}>
+      <nav className='flex justify-between flex-wrap md:justify-end md:items-center'>
+        <Link
+          href={`/${lang === 'en' ? '' : 'es'}`}
+          className='w-[46px] md:me-auto md:w-auto'
+        >
           <Image src={logo} alt='logo' width={55} height={55} />
         </Link>
 
-        {/*Note:This provider includes a div inside */}
-        <SearchContextProvider>
-          <div className='flex items-center gap-[30px] text-lg font-light'>
-            <SearchBox isSpanish={isSpanish} />
-            <LanguageSwitch isSpanish={isSpanish} />
-          </div>
-
-          <ResultsContainer lang={lang} />
-        </SearchContextProvider>
+        <LanguageSwitch isSpanish={isSpanish} />
+        <SearchBox isSpanish={isSpanish} />
       </nav>
     </header>
   );
