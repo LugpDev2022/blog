@@ -4,9 +4,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-import enFlag from '@/public/en.png';
-import esFlag from '@/public/es.png';
-
 const LanguageSwitch = () => {
   const pathname = usePathname();
 
@@ -21,7 +18,7 @@ const LanguageSwitch = () => {
       className='inline-flex py-[9px] px-[14px] gap-[30px] border-[1px] border-cyan-300 rounded-full hover:text-cyan-300 transition'
     >
       <Image
-        src={isSpanish ? esFlag : enFlag}
+        src={isSpanish ? '/es.png' : '/en.png'}
         className={`${isSpanish ? 'order-2' : ''} w-[30px]`}
         alt={isSpanish ? 'bandera españa' : 'England flag'}
         width={30}
