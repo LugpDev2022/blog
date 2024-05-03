@@ -16,7 +16,7 @@ const SearchBox: React.FC<Props> = ({ isSpanish }) => {
 
   return (
     <form
-      className='relative w-full mt-5 md:w-[300px] md:mt-0'
+      className='relative w-full mt-5 md:w-[340px] md:mt-0'
       onSubmit={(e) => e.preventDefault()}
     >
       <label htmlFor='searchBox'>
