@@ -35,7 +35,7 @@ export default function Root({
 
   return (
     <html lang={lang} className={poppins.className}>
-      <body className='pt-[85px]'>
+      <body className='pt-[136px] md:pt-[85px]'>
         <Navbar lang={lang} />
 
         {children}
