@@ -17,7 +17,7 @@ const Aside: React.FC<Props> = async ({ lang }) => {
   const dict = await getDictionary(lang);
 
   return (
-    <aside className='border-[1px] text-center border-cyan-300 rounded-[15px] mx-auto p-5 md:mx-0 text-lg'>
+    <aside className='border-[1px] text-center border-cyan-300 rounded-[15px] mx-auto p-5 md:mx-0'>
       <Image
         src={me}
         alt='avatar'
@@ -25,9 +25,9 @@ const Aside: React.FC<Props> = async ({ lang }) => {
         width={100}
         className='rounded-full mx-auto mb-5'
       />
-      <h4>{dict.aside.author}</h4>
+      <h4 className='text-lg'>{dict.aside.author}</h4>
 
-      <p className='my-[25px] font-light'>{dict.aside.about}</p>
+      <p className='my-[25px] font-light text-base'>{dict.aside.about}</p>
 
       <ul className='flex gap-[30px] justify-center items-center'>
         <li>
