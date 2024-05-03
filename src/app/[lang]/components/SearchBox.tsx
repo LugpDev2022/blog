@@ -1,10 +1,9 @@
 'use client';
 
-import Image from 'next/image';
+import { HiMagnifyingGlass } from 'react-icons/hi2';
+import { IoMdClose } from 'react-icons/io';
 
 import useSearchBox from '@/src/app/[lang]/hooks/useSearchBox';
-import magGlass from '@/public/mag-glass.png';
-import closeIcon from '@/public/x.png';
 
 interface Props {
   isSpanish: boolean;
@@ -20,12 +19,10 @@ const SearchBox: React.FC<Props> = ({ isSpanish }) => {
       onSubmit={(e) => e.preventDefault()}
     >
       <label htmlFor='searchBox'>
-        <Image
-          alt={isSpanish ? 'lupa' : 'magnifying glass'}
+        <HiMagnifyingGlass
+          color='#36DDE8'
+          size={24}
           className='absolute top-1/2 left-[10px] transform -translate-y-1/2 w-6 h-6'
-          height={24}
-          width={24}
-          src={magGlass}
         />
       </label>
 
@@ -49,7 +46,7 @@ const SearchBox: React.FC<Props> = ({ isSpanish }) => {
         onClick={onResetForm}
         type='reset'
       >
-        <Image src={closeIcon} width={20} height={20} alt='x icon' />
+        <IoMdClose size={20} color='#36DDE8' />
       </button>
     </form>
   );
