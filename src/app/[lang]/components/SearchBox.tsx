@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 
-import useSearchBox from '../hooks/useSearchBox';
+import useSearchBox from '@/src/app/[lang]/hooks/useSearchBox';
 import magGlass from '@/public/mag-glass.png';
 import closeIcon from '@/public/x.png';
 
@@ -15,17 +15,14 @@ const SearchBox: React.FC<Props> = ({ isSpanish }) => {
   const { onChange, onBlur, onFocus, onResetForm } = inputHandlers;
 
   return (
-    <form
-      className='relative hidden lg:block'
-      onSubmit={(e) => e.preventDefault()}
-    >
+    <form className='relative' onSubmit={(e) => e.preventDefault()}>
       <label htmlFor='searchBox'>
         <Image
           alt={isSpanish ? 'lupa' : 'magnifying glass'}
-          className='absolute top-1/2 left-[10px] transform -translate-y-1/2'
-          height={27}
+          className='absolute top-1/2 left-[10px] transform -translate-y-1/2 w-6 h-6'
+          height={24}
+          width={24}
           src={magGlass}
-          width={27}
         />
       </label>
 
