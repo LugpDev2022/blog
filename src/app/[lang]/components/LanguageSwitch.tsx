@@ -1,11 +1,7 @@
 'use client';
 
-import Link from 'next/link';
-import Image from 'next/image';
-import { usePathname } from 'next/navigation';
-
-import enFlag from '@/public/en.png';
-import esFlag from '@/public/es.png';
+import { usePathname, useRouter } from 'next/navigation';
+import { GrLanguage } from 'react-icons/gr';
 
 interface Props {
   isSpanish: boolean;
@@ -13,30 +9,36 @@ interface Props {
 
 const LanguageSwitch: React.FC<Props> = ({ isSpanish }) => {
   const pathname = usePathname();
-  let href = '';
+  const router = useRouter();
 
-  if (isSpanish) {
-    const enPathname = pathname.substring(3);
-    href = enPathname.length < 1 ? '/' : enPathname;
-  } else {
-    href = `/es${pathname}`;
-  }
+  const handleChange = () => {
+    let href = '';
+
+    if (isSpanish) {
+      const enPathname = pathname.substring(3);
+      href = enPathname.length < 1 ? '/' : enPathname;
+    } else {
+      href = `/es${pathname}`;
+    }
+
+    router.push(href);
+    router.refresh();
+  };
 
   return (
-    <Link
-      href={href}
-      className='inline-flex py-[9px] px-[14px] gap-[30px] border-[1px] border-cyan-300 rounded-full hover:text-cyan-300 transition'
-    >
-      <Image
-        src={isSpanish ? esFlag : enFlag}
-        className={`${isSpanish ? 'order-2' : ''} w-[30px]`}
-        alt={isSpanish ? 'bandera españa' : 'England flag'}
-        width={30}
-        height={30}
-      />
+    <div className='flex items-center gap-2'>
+      <GrLanguage size={24} />
 
-      <span className='uppercase w-[22px]'>{isSpanish ? 'es' : 'en'}</span>
-    </Link>
+      <select name='lang' className='bg-[#090f3f]' onChange={handleChange}>
+        <option value='es' selected={isSpanish}>
+          Español
+        </option>
+
+        <option value='en' selected={!isSpanish}>
+          English
+        </option>
+      </select>
+    </div>
   );
 };
 
