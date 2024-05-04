@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import Article from '@/src/models/Article';
 import { connectDB } from '@/src/utils/mongoose';
 import { revalidatePath } from 'next/cache';

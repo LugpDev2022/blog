@@ -34,7 +34,7 @@ const LatestArticles: React.FC<Props> = async ({ lang }) => {
           return (
             <li key={_id}>
               <Article
-                title={article[lang].title}
+                title={article.title[lang]}
                 date={formatDate(createdAt, lang)}
                 href={buildArticleUrl(lang, _id)}
                 icon={icon}
