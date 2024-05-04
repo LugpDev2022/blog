@@ -25,8 +25,6 @@ export const POST = async (req: NextRequest) => {
 
     const resp = await Article.create(body);
 
-    console.log(resp);
-
     revalidatePath('/api/articles');
     return NextResponse.json({ article: resp });
   } catch (e: any) {

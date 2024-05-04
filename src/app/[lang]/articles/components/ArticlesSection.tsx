@@ -25,7 +25,7 @@ const ArticlesSection: React.FC<Props> = async ({ lang }) => {
         <Article
           key={article._id}
           href={buildArticleUrl(lang, article._id)}
-          title={article[lang].title}
+          title={article.title[lang]}
           icon={article.icon}
         />
       ))}

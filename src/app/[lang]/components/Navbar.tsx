@@ -3,11 +3,9 @@ import Link from 'next/link';
 
 import LanguageSwitch from './LanguageSwitch';
 import SearchBox from './SearchBox';
-import ResultsContainer from './ResultsContainer';
 import type { Locale } from '@/src/types/shared.types';
 
 import logo from '@/public/logo.svg';
-import SearchContextProvider from '../context/SearchContext';
 
 interface Props {
   lang: Locale;

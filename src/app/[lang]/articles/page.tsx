@@ -12,7 +12,7 @@ const ArticlesPage: React.FC<Props> = async ({ params: { lang } }) => {
   return (
     <main>
       <h2 className='subtitle'>{dict.allArticles.subtitle}</h2>
-      <ArticlesSection lang={lang} />
+      {/* <ArticlesSection lang={lang} /> */}
     </main>
   );
 };

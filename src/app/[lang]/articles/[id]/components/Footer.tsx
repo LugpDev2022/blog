@@ -41,7 +41,7 @@ const Footer: React.FC<Props> = ({ lang }) => {
                 href={buildArticleUrl(lang, _id)}
                 date={formatDate(createdAt, lang)}
                 icon={icon}
-                title={article[lang].title}
+                title={article.title[lang]}
               />
             </li>
           );
