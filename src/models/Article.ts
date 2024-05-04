@@ -7,14 +7,12 @@ const ArticleSchema = new Schema(
       alt: { type: String, required: true },
     },
 
-    en: {
-      title: { type: String, required: true },
-      url: { type: String, required: true },
+    title: {
+      en: { type: String, required: true },
+      es: { type: String, required: true },
     },
-    es: {
-      title: { type: String, required: true },
-      url: { type: String, required: true },
-    },
+
+    baseUrl: { type: String, required: true },
   },
   { timestamps: true }
 );

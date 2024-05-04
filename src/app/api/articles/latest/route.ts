@@ -3,7 +3,7 @@ import Article from '@/src/models/Article';
 import { connectDB } from '@/src/utils/mongoose';
 import { revalidatePath } from 'next/cache';
 
-export const GET = async (req: NextRequest) => {
+export const GET = async () => {
   try {
     connectDB();
 
