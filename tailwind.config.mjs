@@ -4,6 +4,9 @@ export default {
   theme: {
     extend: {
       colors: {
+        blue: {
+          950: "#090f3f",
+        },
         cyan: {
           300: "#36DDE8",
         },
