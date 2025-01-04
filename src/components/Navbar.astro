@@ -1,3 +1,7 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
 <header
   class="border-b border-cyan-300 flex px-5 py-4 justify-between items-center"
 >
@@ -12,11 +16,19 @@
     </nav>
   </div>
 
-  <div>
-    <form>
-      <input type="search" placeholder="Buscar..." />
-    </form>
-  </div>
+  <form class="relative">
+    <Icon
+      name="gravity-ui:magnifier"
+      size={20}
+      color="#36dde8"
+      class="absolute top-1/2 transform left-2.5 -translate-y-1/2"
+    />
+    <input
+      type="search"
+      placeholder="Buscar..."
+      class="flex border border-cyan-300 rounded-lg items-center p-2.5 gap-2.5 bg-transparent w-[350px] pl-10"
+    />
+  </form>
 </header>
 
 <style>
