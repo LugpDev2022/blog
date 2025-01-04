@@ -1,10 +1,16 @@
-<header>
-  <a href="/"> <img src="/logo.png" alt="LUGP DEV BLOG" /></a>
+<header
+  class="border-b border-cyan-300 flex px-5 py-4 justify-between items-center"
+>
+  <div class="flex gap-[30px] items-center">
+    <a href="/">
+      <img src="/logo.png" alt="LUGP DEV BLOG" class="w-[113px] h-[50px]" /></a
+    >
 
-  <nav>
-    <a href="#">Artículos</a>
-    <a href="#">Categorías</a>
-  </nav>
+    <nav class="flex gap-[30px] text-sm font-medium">
+      <a href="#" class="nav-link">Artículos</a>
+      <a href="#" class="nav-link">Categorías</a>
+    </nav>
+  </div>
 
   <div>
     <form>
@@ -12,3 +18,9 @@
     </form>
   </div>
 </header>
+
+<style>
+  .nav-link:hover {
+    @apply transition text-cyan-300;
+  }
+</style>
