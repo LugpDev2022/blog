@@ -3,10 +3,19 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout>
-  <section class="text-center px-4 pt-10 md:pt-20">
+  <section class="text-center px-4 pt-10 mb-12 md:pt-20 md:pb-24">
     <h1 class="text-cyan-300 font-bold text-3xl md:text-6xl md:pb-2.5">
       Lugp.dev
     </h1>
     <p class="text-pretty md:text-xl">Guías para dominar el desarrollo web</p>
   </section>
+  <section class="px-4">
+    <h2 class="subtitle">Últimas Publicaciones</h2>
+  </section>
 </Layout>
+
+<style>
+  .subtitle {
+    @apply text-cyan-300 font-semibold text-2xl md:text-3xl;
+  }
+</style>
