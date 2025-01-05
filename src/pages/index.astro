@@ -2,6 +2,8 @@
 import Layout from "../layouts/Layout.astro";
 import Article from "../components/Article.astro";
 import { Icon } from "astro-icon/components";
+import avatar from "../images/avatar.png";
+import { Image } from "astro:assets";
 ---
 
 <Layout>
@@ -40,15 +42,9 @@ import { Icon } from "astro-icon/components";
   </section>
 
   <section
-    class="flex flex-col gap-10 py-7 px-4 items-center bg-cyan-300/10 md:py-12 md:px-12 md:flex-row md:gap-[75px] lg:px-[175px]"
+    class="flex flex-col gap-10 py-7 px-4 items-center justify-center bg-cyan-300/10 md:py-12 md:px-12 md:flex-row md:gap-[75px] lg:px-[175px]"
   >
-    <img
-      src="/avatar.png"
-      alt="avatar"
-      class="rounded-full"
-      width="192"
-      height="192"
-    />
+    <Image src={avatar} alt="avatar" width="192" class="rounded-full" />
 
     <div class="text-center md:text-left text-pretty">
       <h2 class="text-cyan-300 font-semibold text-2xl mb-5">Sobre el autor</h2>
