@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Article from "../components/Article.astro";
+import { Icon } from "astro-icon/components";
 ---
 
 <Layout>
@@ -10,9 +11,9 @@ import Article from "../components/Article.astro";
     </h1>
     <p class="text-pretty md:text-xl">Guías para dominar el desarrollo web</p>
   </section>
-  <section class="px-4">
+  <section class="px-4 mb-12">
     <h2 class="subtitle">Últimas Publicaciones</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-4">
       <Article
         title="Introducción a React"
         date={new Date()}
@@ -32,6 +33,10 @@ import Article from "../components/Article.astro";
         icon="js"
       />
     </div>
+
+    <a href="#" class="projects-link text-xl"
+      >Ver más <Icon name="gravity-ui:arrow-right" size={24} />
+    </a>
   </section>
 </Layout>
 
