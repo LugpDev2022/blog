@@ -1,5 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
+import logo from "../images/logo.png";
+import { Image } from "astro:assets";
 ---
 
 <header
@@ -9,8 +11,13 @@ import { Icon } from "astro-icon/components";
     class="flex gap-[30px] items-center w-full justify-between mb-5 md:mb-0 md:justify-start"
   >
     <a href="/">
-      <img src="/logo.png" alt="LUGP DEV BLOG" class="w-[113px] h-[50px]" /></a
-    >
+      <Image
+        src={logo}
+        alt="LUGP DEV BLOG"
+        class="w-[113px] h-[50px]"
+        loading="eager"
+      />
+    </a>
 
     <nav class="flex gap-5 md:gap-[30px] text-sm font-semibold">
       <a href="#" class="nav-link">Artículos</a>
