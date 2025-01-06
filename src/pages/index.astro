@@ -4,6 +4,18 @@ import Article from "../components/Article.astro";
 import { Icon } from "astro-icon/components";
 import avatar from "../images/avatar.png";
 import { Image } from "astro:assets";
+import Category from "./components/Category.astro";
+
+const categories = [
+  "JavaScript",
+  "TypeScript",
+  "React",
+  "Next",
+  "DevOps",
+  "Node.js",
+  "Testing",
+  "Astro",
+];
 ---
 
 <Layout>
@@ -56,6 +68,16 @@ import { Image } from "astro:assets";
         un poco más sencillo y para inspirar a más personas a enamorarse de esta
         increíble profesión.
       </p>
+    </div>
+  </section>
+
+  <section class="px-4 py-12">
+    <h1 class="subtitle">Categorías</h1>
+
+    <div
+      class="grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+    >
+      {categories.map((category) => <Category name={category} />)}
     </div>
   </section>
 </Layout>

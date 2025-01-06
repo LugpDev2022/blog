@@ -1,0 +1,16 @@
+---
+interface Props {
+  name: string;
+}
+
+const { name } = Astro.props;
+---
+
+<div
+  class="flex gap-4 items-center bg-cyan-300/10 p-4 rounded-lg transition hover:bg-cyan-300/20"
+>
+  <!-- TODO: Add the icon -->
+  <div class="w-9 h-9 rounded-full bg-white"></div>
+
+  <h3>{name}</h3>
+</div>
