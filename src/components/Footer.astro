@@ -1,0 +1,66 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<footer class="bg-[#050A2F] px-4 py-7">
+  <div
+    class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 xl:gap-10 mb-7 gap-7"
+  >
+    <div class="xl:col-span-2 md:flex md:flex-col md:justify-between">
+      <div>
+        <h4 class="footer-subtitle">Luis Alberto Cervantes García</h4>
+        <p>
+          Si te interesa conocer los proyectos en los que he trabajado, te
+          invito a explorar mi portafolio personal.
+        </p>
+      </div>
+
+      <a href="#" class="projects-link mb-7 md:mb-0"
+        >Ver Projectos <Icon name="gravity-ui:arrow-right" size={22} /></a
+      >
+    </div>
+
+    <div class="md:flex md:flex-col md:justify-between">
+      <div>
+        <h4 class="footer-subtitle">Contacto</h4>
+
+        <span class="inline-block w-full">E-mail de contacto:</span>
+        <a href="#" class="font-semibold">lugpdev@gmail.com</a>
+      </div>
+
+      <div class="flex gap-5 mt-5 mb-7 md:mb-0">
+        <a href="#">
+          <Icon name="ion:logo-github" class="social-media-link" />
+        </a>
+        <a href="#">
+          <Icon name="ion:logo-linkedin" class="social-media-link" />
+        </a>
+        <a href="#">
+          <Icon name="proicons:x-twitter" class="social-media-link" /></a
+        >
+      </div>
+    </div>
+  </div>
+
+  <hr class="border border-cyan-300 mb-5" />
+
+  <p>
+    © 2025 Lugp.dev. El contenido de este blog está protegido por una licencia
+    Creative Commons Atribución-NoComercial 4.0 Internacional. <br /> Más detalles
+    <a href="#" class="text-cyan-300 transition-all hover:underline">aquí</a>.
+  </p>
+</footer>
+
+<style>
+  .footer-subtitle {
+    @apply font-semibold text-lg text-cyan-300 mb-5;
+  }
+
+  .social-media-link {
+    @apply w-6 h-6 transition;
+  }
+
+  .social-media-link:hover {
+    @apply text-cyan-300;
+  }
+</style>
