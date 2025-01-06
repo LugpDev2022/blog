@@ -1,7 +1,9 @@
 ---
 import { Icon } from "astro-icon/components";
-import { getIcon, type TechCategory } from "../lib/getIcon";
+
+import { getIcon } from "../lib/getIcon";
 import { stringToDate } from "../lib/stringToDate";
+import type { TechCategory } from "../categories";
 
 interface Props {
   title: string;

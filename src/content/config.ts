@@ -1,15 +1,5 @@
 import { defineCollection, z } from "astro:content";
-
-const techCategoryValues = [
-  "JavaScript",
-  "TypeScript",
-  "React",
-  "Next",
-  "DevOps",
-  "Node.js",
-  "Testing",
-  "Astro",
-] as const;
+import { techCategoryValues } from "../categories";
 
 const blog = defineCollection({
   schema: z.object({

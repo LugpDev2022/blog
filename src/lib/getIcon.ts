@@ -1,12 +1,4 @@
-export type TechCategory =
-  | "JavaScript"
-  | "TypeScript"
-  | "React"
-  | "Next"
-  | "DevOps"
-  | "Node.js"
-  | "Testing"
-  | "Astro";
+import type { TechCategory } from "../categories";
 
 export const getIcon = (category: TechCategory): string => {
   switch (category) {
