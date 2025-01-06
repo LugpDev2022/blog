@@ -8,9 +8,10 @@ interface Props {
   date: string;
   description: string;
   category: TechCategory;
+  slug: string;
 }
 
-const { title, date, description, category } = Astro.props;
+const { title, date, description, category, slug } = Astro.props;
 
 const icon = getIcon(category);
 
@@ -39,9 +40,10 @@ const parsedDate = stringToDate(date).toLocaleDateString("es-MX", {
 
   <p class="my-6">{description}</p>
 
-  <button
-    class="flex gap-2.5 bg-cyan-300 text-blue-950 px-4 py-2 rounded-lg transition hover:bg-cyan-300/80"
+  <a
+    href={`/articulos/${slug}.md`}
+    class="inline-flex gap-2.5 bg-cyan-300 text-blue-950 px-4 py-2 rounded-lg transition hover:bg-cyan-300/80"
     ><Icon name="ion:book-outline" width="24" height="24" />
-    <span>Leer más</span></button
+    <span>Leer más</span></a
   >
 </article>
