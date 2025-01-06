@@ -1,10 +1,11 @@
 ---
 import { Icon } from "astro-icon/components";
 import { getIcon, type TechCategory } from "../lib/getIcon";
+import { stringToDate } from "../lib/stringToDate";
 
 interface Props {
   title: string;
-  date: Date;
+  date: string;
   description: string;
   category: TechCategory;
 }
@@ -13,7 +14,11 @@ const { title, date, description, category } = Astro.props;
 
 const icon = getIcon(category);
 
-const parsedDate = date.toLocaleDateString("es-MX", { dateStyle: "short" });
+const parsedDate = stringToDate(date).toLocaleDateString("es-MX", {
+  day: "2-digit",
+  month: "2-digit",
+  year: "numeric",
+});
 ---
 
 <article class="border border-cyan-300 rounded-lg p-6">
