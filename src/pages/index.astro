@@ -5,6 +5,7 @@ import { Icon } from "astro-icon/components";
 import avatar from "../images/avatar.png";
 import { Image } from "astro:assets";
 import Category from "./components/Category.astro";
+import type { TechCategory } from "../lib/getIcon";
 
 const categories = [
   "JavaScript",
@@ -15,7 +16,7 @@ const categories = [
   "Node.js",
   "Testing",
   "Astro",
-];
+] as TechCategory[];
 ---
 
 <Layout>

@@ -1,16 +1,21 @@
 ---
+import { Icon } from "astro-icon/components";
+import { getIcon } from "../../lib/getIcon";
+import type { TechCategory } from "../../lib/getIcon";
+
 interface Props {
-  name: string;
+  name: TechCategory;
 }
 
 const { name } = Astro.props;
+
+const icon = getIcon(name);
 ---
 
 <div
   class="flex gap-4 items-center bg-cyan-300/10 p-4 rounded-lg transition hover:bg-cyan-300/20"
 >
-  <!-- TODO: Add the icon -->
-  <div class="w-9 h-9 rounded-full bg-white"></div>
+  <Icon name={icon} size={36} />
 
   <h3>{name}</h3>
 </div>
