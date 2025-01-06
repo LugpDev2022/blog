@@ -1,29 +1,28 @@
 ---
-import Article from "../components/Article.astro";
+import { getCollection } from "astro:content";
 import { Icon } from "astro-icon/components";
+import Article from "../components/Article.astro";
+
+const posts = await getCollection("blog");
+
+// TODO: Get the latests post by date
+const latestPosts = posts.slice(0, 3);
 ---
 
 <section class="home-section-padding mb-12">
   <h2 class="subtitle">Últimas Publicaciones</h2>
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-4">
-    <Article
-      title="Introducción a React"
-      date={new Date()}
-      description="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam, similique voluptatum amet eius delectus voluptatem tempora corporis dolorem ullam nobis."
-      category="React"
-    />
-    <Article
-      title="Introducción a React"
-      date={new Date()}
-      description="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam, similique voluptatum amet eius delectus voluptatem tempora corporis dolorem ullam nobis."
-      category="JavaScript"
-    />
-    <Article
-      title="Introducción a React"
-      date={new Date()}
-      description="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam, similique voluptatum amet eius delectus voluptatem tempora corporis dolorem ullam nobis."
-      category="Astro"
-    />
+    {
+      latestPosts.map(({ data, slug }) => (
+        <Article
+          title={data.title}
+          date={data.date}
+          category={data.category}
+          description={data.description}
+          slug={slug}
+        />
+      ))
+    }
   </div>
 
   <a href="#" class="projects-link text-xl"
