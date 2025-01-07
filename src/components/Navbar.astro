@@ -1,7 +1,8 @@
 ---
 import { Icon } from "astro-icon/components";
-import logo from "../images/logo.png";
 import { Image } from "astro:assets";
+import Searchbox from "./Searchbox";
+import logo from "../images/logo.png";
 ---
 
 <header
@@ -26,19 +27,14 @@ import { Image } from "astro:assets";
     </nav>
   </div>
 
-  <form class="relative w-full md:w-auto">
+  <Searchbox client:load>
     <Icon
       name="gravity-ui:magnifier"
       size={20}
       color="#36dde8"
       class="absolute top-1/2 transform left-2.5 -translate-y-1/2"
     />
-    <input
-      type="search"
-      placeholder="Buscar..."
-      class="flex border border-cyan-300 rounded-lg items-center p-2.5 gap-2.5 bg-transparent w-full md:w-[350px] pl-10 text-sm"
-    />
-  </form>
+  </Searchbox>
 </header>
 
 <style>
