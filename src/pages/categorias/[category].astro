@@ -1,0 +1,23 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { validateCategory } from "../../lib/validateCategory";
+
+const { category } = Astro.params;
+
+if (!category) {
+  throw new Error("Category not provided");
+}
+
+const [categoryName, error] = validateCategory(category);
+
+// TODO: Create a 404 page
+if (!categoryName) {
+  throw error;
+}
+---
+
+<Layout>
+  <main class="section-padding">
+    <h1 class="subtitle">{categoryName}</h1>
+  </main>
+</Layout>
