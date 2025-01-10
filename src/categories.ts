@@ -7,6 +7,7 @@ export const techCategoryValues = [
   "Node.js",
   "Testing",
   "Astro",
+  "Relatos",
 ] as const;
 
 export type TechCategory = (typeof techCategoryValues)[number];

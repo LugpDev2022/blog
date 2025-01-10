@@ -18,5 +18,7 @@ export const getIcon = (category: TechCategory): string => {
       return "qlementine-icons:test-16";
     case "Astro":
       return "devicon-plain:astro";
+    case "Relatos":
+      return "gravity-ui:book";
   }
 };
