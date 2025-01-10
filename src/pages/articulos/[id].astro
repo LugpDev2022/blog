@@ -24,7 +24,7 @@ const parsedDate = stringToDate(post.data.date).toLocaleDateString("es-MX", {
 });
 ---
 
-<Layout>
+<Layout title={post.data.title}>
   <div class="max-w-screen-lg px-4 pt-12 pb-20 mx-auto">
     <h1>{post.data.title}</h1>
 

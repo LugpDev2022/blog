@@ -3,6 +3,12 @@ import Navbar from "../components/Navbar.astro";
 import Footer from "../components/Footer.astro";
 import "@fontsource/poppins";
 import "../styles/globals.css";
+
+interface Props {
+  title?: string;
+}
+
+const { title } = Astro.props;
 ---
 
 <html lang="es">
@@ -11,7 +17,9 @@ import "../styles/globals.css";
     <link rel="icon" type="image/svg+xml" href="/favicon.png" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>Lugp.dev | Guías para dominar el desarrollo web</title>
+    <title>
+      {title ? title : "Lugp.dev | Guías para dominar el desarrollo web"}
+    </title>
   </head>
   <body>
     <Navbar />
