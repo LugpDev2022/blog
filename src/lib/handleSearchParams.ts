@@ -1,8 +1,8 @@
-import type { CollectionKey } from "astro:content";
+import type { CollectionEntry, CollectionKey } from "astro:content";
 
 // TODO: create a better search algorithm
 export const handleSearchParams = (
-  { data }: CollectionKey,
+  { data }: CollectionEntry<"blog">,
   queryValue: string | null,
 ): boolean => {
   // If no search query, return all posts

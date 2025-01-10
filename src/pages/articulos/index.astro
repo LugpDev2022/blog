@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import type { CollectionKey } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 
 import Layout from "../../layouts/Layout.astro";
 import Article from "../../components/Article.astro";
@@ -8,7 +8,7 @@ import { handleSearchParams } from "../../lib/handleSearchParams";
 
 const search = Astro.url.searchParams.get("q");
 
-const posts = await getCollection("blog", (data: CollectionKey) =>
+const posts = await getCollection("blog", (data: CollectionEntry<"blog">) =>
   handleSearchParams(data, search),
 );
 ---
@@ -18,7 +18,7 @@ const posts = await getCollection("blog", (data: CollectionKey) =>
     class="grid px-4 grid-cols-1 sm:grid-cols-2 md:px-5 md:grid-cols-3 gap-7 pt-11 pb-20"
   >
     {
-      posts.map(({ data, slug }: CollectionKey) => (
+      posts.map(({ data, slug }: CollectionEntry<"blog">) => (
         <Article
           title={data.title}
           date={data.date}
