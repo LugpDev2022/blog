@@ -3,6 +3,9 @@ import { Icon } from "astro-icon/components";
 import Layout from "../../layouts/Layout.astro";
 import { getIcon } from "../../lib/getIcon";
 import { validateCategory } from "../../lib/validateCategory";
+import { getCollection } from "astro:content";
+import { sortPostsByDate } from "../../lib/sortPostsByDate";
+import Article from "../../components/Article.astro";
 
 const { category } = Astro.params;
 
@@ -20,14 +23,34 @@ if (!categoryName) {
 }
 
 const icon = getIcon(categoryName);
+
+const articles = await getCollection("blog", ({ data }) => {
+  return data.category.toLowerCase().includes(category.toLowerCase());
+});
+
+const sortedArticles = sortPostsByDate(articles);
 ---
 
 <Layout>
-  <div class="section-padding flex gap-3 pt-11 pb-20">
-    <Icon name={icon} size={36} class="shrink-0" />
+  <div class="section-padding pt-11 pb-20">
+    <div class="flex gap-3">
+      <Icon name={icon} size={36} class="shrink-0" />
 
-    <h1 class="subtitle">{categoryName}</h1>
+      <h1 class="subtitle pb-0">{categoryName}</h1>
+    </div>
 
-    <main class="section-padding"></main>
+    <main class="articles-grid">
+      {
+        sortedArticles.map(({ data, slug }) => (
+          <Article
+            title={data.title}
+            date={data.date}
+            category={data.category}
+            description={data.description}
+            slug={slug}
+          />
+        ))
+      }
+    </main>
   </div>
 </Layout>
