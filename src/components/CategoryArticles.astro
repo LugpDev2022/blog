@@ -1,0 +1,25 @@
+---
+import { Icon } from "astro-icon/components";
+import type { TechCategory } from "../categories";
+import { getIcon } from "../lib/getIcon";
+
+interface Props {
+  category: TechCategory;
+}
+
+const { category } = Astro.props;
+
+const icon = getIcon(category);
+---
+
+<article class="border border-cyan-300 rounded-lg p-6">
+  <header>
+    <Icon name={icon} size={36} class="shrink-0" />
+
+    <h2>{category}</h2>
+  </header>
+
+  <div></div>
+
+  <a href="#">Ver todos los artículos</a>
+</article>
