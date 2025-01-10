@@ -5,7 +5,8 @@ import Searchbox from "./Searchbox";
 import logo from "../images/logo.png";
 
 const search = Astro.url.searchParams.get("q");
-console.log(search);
+
+const { pathname } = Astro.url;
 ---
 
 <header
@@ -23,10 +24,17 @@ console.log(search);
       />
     </a>
 
-    <!-- TODO: Change active link -->
     <nav class="flex gap-5 md:gap-[30px] text-sm font-semibold">
-      <a href="/articulos" class="nav-link">Artículos</a>
-      <a href="/categorias" class="nav-link">Categorías</a>
+      <a
+        href="/articulos"
+        class=`nav-link ${pathname.includes("/articulos") ? "text-cyan-300": ""}`
+        >Artículos</a
+      >
+      <a
+        href="/categorias"
+        class=`nav-link ${pathname.includes("/categorias") ? "text-cyan-300": ""}`
+        >Categorías</a
+      >
     </nav>
   </div>
 
