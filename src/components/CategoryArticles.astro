@@ -2,6 +2,8 @@
 import { Icon } from "astro-icon/components";
 import type { TechCategory } from "../categories";
 import { getIcon } from "../lib/getIcon";
+import { getCollection } from "astro:content";
+import { sortPostsByDate } from "../lib/sortPostsByDate";
 
 interface Props {
   category: TechCategory;
@@ -10,16 +12,40 @@ interface Props {
 const { category } = Astro.props;
 
 const icon = getIcon(category);
+
+const articles = await getCollection("blog", ({ data }) => {
+  return data.category.toLowerCase().includes(category.toLowerCase());
+});
+
+const latestArticles = sortPostsByDate(articles).slice(0, 2);
 ---
 
-<article class="border border-cyan-300 rounded-lg p-6">
-  <header>
-    <Icon name={icon} size={36} class="shrink-0" />
+<article
+  class="flex flex-col justify-between border border-cyan-300 rounded-lg p-6"
+>
+  <div>
+    <header class="flex gap-3 items-center justify-start mb-6">
+      <Icon name={icon} size={36} class="shrink-0" />
 
-    <h2>{category}</h2>
-  </header>
+      <h2 class="text-cyan-300 text-2xl font-semibold">{category}</h2>
+    </header>
 
-  <div></div>
+    <div class="flex flex-col gap-3 mb-6">
+      {
+        latestArticles.map(({ data }) => (
+          <div>
+            <h3 class="text-cyan-300 font-semibold">{data.title}</h3>
+            <p class="text-sm">{data.description}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
 
-  <a href="#">Ver todos los artículos</a>
+  <a
+    href="#"
+    class="flex gap-2.5 justify-center items-center bg-cyan-300 text-blue-950 px-4 py-2 rounded-lg text-sm font-medium transition hover:bg-cyan-300/80"
+  >
+    Ver todos los artículos <Icon name="gravity-ui:arrow-right" size={18} /></a
+  >
 </article>
