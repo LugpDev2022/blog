@@ -2,11 +2,11 @@ import { useState } from "react";
 
 interface Props {
   children: React.ReactNode;
+  currentValue: string;
 }
 
-// TODO: Preserve input value on submit
-const Searchbox: React.FC<Props> = ({ children }) => {
-  const [value, setValue] = useState("");
+const Searchbox: React.FC<Props> = ({ children, currentValue }) => {
+  const [value, setValue] = useState(currentValue);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value);
