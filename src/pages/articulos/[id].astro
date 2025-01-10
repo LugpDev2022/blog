@@ -2,6 +2,8 @@
 import { getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import { stringToDate } from "../../lib/stringToDate";
+import { Icon } from "astro-icon/components";
+import { getIcon } from "../../lib/getIcon";
 
 export const prerender = true;
 
@@ -22,16 +24,26 @@ const parsedDate = stringToDate(post.data.date).toLocaleDateString("es-MX", {
   month: "long",
   year: "numeric",
 });
+
+const icon = getIcon(post.data.category);
 ---
 
 <Layout title={post.data.title}>
   <div class="max-w-screen-lg px-4 pt-12 pb-20 mx-auto">
-    <h1>{post.data.title}</h1>
+    <div class="flex justify-between items-start mb-2.5 gap-2.5">
+      <div>
+        <h1 class="text-cyan-300 text-2xl font-bold mb-1">{post.data.title}</h1>
 
-    <time datetime={parsedDate}>{parsedDate}</time> - <span>Luis Cervantes</span
-    >
+        <p class="text-cyan-300/80 font-medium">
+          <time datetime={parsedDate}>{parsedDate}</time>
+          - Luis Cervantes
+        </p>
+      </div>
 
-    <hr />
+      <Icon name={icon} size={55} class="shrink-0" />
+    </div>
+
+    <hr class="border-cyan-300 mb-7" />
 
     <main class="content-container">
       <Content />
