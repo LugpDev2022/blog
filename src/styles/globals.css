@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+.subtitle {
+  @apply text-cyan-300 font-semibold text-2xl md:text-3xl mb-7;
+}
+
 .projects-link {
   @apply text-cyan-300 transition;
   align-items: center;
