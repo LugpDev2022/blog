@@ -1,5 +1,7 @@
 ---
+import { Icon } from "astro-icon/components";
 import Layout from "../../layouts/Layout.astro";
+import { getIcon } from "../../lib/getIcon";
 import { validateCategory } from "../../lib/validateCategory";
 
 const { category } = Astro.params;
@@ -14,10 +16,16 @@ const [categoryName, error] = validateCategory(category);
 if (!categoryName) {
   throw error;
 }
+
+const icon = getIcon(categoryName);
 ---
 
 <Layout>
-  <main class="section-padding">
+  <div class="section-padding flex gap-3 pt-11 pb-20">
+    <Icon name={icon} size={36} class="shrink-0" />
+
     <h1 class="subtitle">{categoryName}</h1>
-  </main>
+
+    <main class="section-padding"></main>
+  </div>
 </Layout>
