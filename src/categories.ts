@@ -1,13 +1,3 @@
-export type TechCategory =
-  | "JavaScript"
-  | "TypeScript"
-  | "React"
-  | "Next"
-  | "DevOps"
-  | "Node.js"
-  | "Testing"
-  | "Astro";
-
 export const techCategoryValues = [
   "JavaScript",
   "TypeScript",
@@ -18,3 +8,5 @@ export const techCategoryValues = [
   "Testing",
   "Astro",
 ] as const;
+
+export type TechCategory = (typeof techCategoryValues)[number];
