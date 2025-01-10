@@ -4,6 +4,7 @@ import type { CollectionEntry } from "astro:content";
 
 import Layout from "../../layouts/Layout.astro";
 import Article from "../../components/Article.astro";
+import ArticleNotFound from "../../components/ArticleNotFound.astro";
 import { handleSearchParams } from "../../lib/handleSearchParams";
 import { sortPostsByDate } from "../../lib/sortPostsByDate";
 
@@ -31,18 +32,7 @@ const sortedPosts = sortPostsByDate(posts);
         ))}
       </div>
     ) : (
-      <div class="section-padding flex flex-col justify-center items-center text-center h-[calc(100vh-145px)] md:h-[calc(100vh-83px)]">
-        <h1 class="text-6xl font-bold mb-4 text-cyan-300">404</h1>
-        <h2 class="text-2xl font-semibold mb-4 text-cyan-300">
-          Artículo no encontrado
-        </h2>
-
-        <p class="text-white">
-          Lo sentimos, no pudimos encontrar el artículo que estás buscando.
-          <br /> Por favor, intenta buscar con otros términos o vuelve más
-          tarde.
-        </p>
-      </div>
+      <ArticleNotFound />
     )
   }
 </Layout>
