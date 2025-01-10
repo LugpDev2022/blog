@@ -22,3 +22,7 @@
 .section-padding {
   @apply px-4 md:px-5;
 }
+
+.primary-btn {
+  @apply bg-cyan-300 text-blue-950 px-4 py-2 rounded-lg transition hover:bg-cyan-300/80;
+}
