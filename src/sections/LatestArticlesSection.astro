@@ -2,11 +2,13 @@
 import { getCollection } from "astro:content";
 import { Icon } from "astro-icon/components";
 import Article from "../components/Article.astro";
+import { sortPostsByDate } from "../lib/sortPostsByDate";
 
 const posts = await getCollection("blog");
 
-// TODO: Get the latests post by date
-const latestPosts = posts.slice(0, 3);
+const sortedPosts = sortPostsByDate(posts);
+
+const latestPosts = sortedPosts.slice(0, 3);
 ---
 
 <section class="home-section-padding mb-12">
