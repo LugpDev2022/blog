@@ -14,7 +14,7 @@ const [categoryName, error] = validateCategory(category);
 
 // TODO: Create a 404 page
 if (!categoryName) {
-  throw error;
+  return Astro.redirect("/categorias/not-found");
 }
 
 const icon = getIcon(categoryName);
