@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
+import { stringToDate } from "../../lib/stringToDate";
 
 export const prerender = true;
 
@@ -15,9 +16,27 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+
+const parsedDate = stringToDate(post.data.date).toLocaleDateString("es-MX", {
+  day: "2-digit",
+  month: "long",
+  year: "numeric",
+});
 ---
 
 <Layout>
-  <h1>{post.data.title}</h1>
-  <Content />
+  <div class="max-w-screen-lg px-4 pt-12 pb-20 mx-auto">
+    <h1>{post.data.title}</h1>
+
+    <time datetime={parsedDate}>{parsedDate}</time> - <span>Luis Cervantes</span
+    >
+
+    <hr />
+
+    <main class="content-container">
+      <Content />
+    </main>
+
+    <!-- TODO: Add related articles -->
+  </div>
 </Layout>
