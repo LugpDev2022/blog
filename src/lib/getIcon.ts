@@ -19,6 +19,6 @@ export const getIcon = (category: TechCategory): string => {
     case "Astro":
       return "devicon-plain:astro";
     case "Relatos":
-      return "gravity-ui:book";
+      return "tabler:message";
   }
 };
