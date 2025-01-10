@@ -18,3 +18,7 @@
 .projects-link:hover {
   gap: 15px;
 }
+
+.section-padding {
+  @apply px-4 md:px-5;
+}
