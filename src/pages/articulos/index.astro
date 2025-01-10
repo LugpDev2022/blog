@@ -20,7 +20,7 @@ const sortedPosts = sortPostsByDate(posts);
 <Layout>
   {
     sortedPosts.length > 0 ? (
-      <div class="grid px-4 grid-cols-1 sm:grid-cols-2 md:px-5 md:grid-cols-3 gap-7 pt-11 pb-20">
+      <div class="section-padding articles-grid pt-11 pb-20">
         {sortedPosts.map(({ data, slug }: CollectionEntry<"blog">) => (
           <Article
             title={data.title}
