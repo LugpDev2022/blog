@@ -32,9 +32,9 @@ const icon = getIcon(post.data.category);
   <div class="max-w-screen-lg px-4 pt-12 pb-20 mx-auto">
     <div class="flex justify-between items-start mb-2.5 gap-2.5">
       <div>
-        <h1 class="text-cyan-300 text-2xl font-bold mb-1">{post.data.title}</h1>
+        <h1 class="text-cyan-300 text-3xl font-bold mb-1">{post.data.title}</h1>
 
-        <p class="text-cyan-300/80 font-medium">
+        <p class="text-white/80 font-medium">
           <time datetime={parsedDate}>{parsedDate}</time>
           - Luis Cervantes
         </p>
@@ -52,3 +52,19 @@ const icon = getIcon(post.data.category);
     <!-- TODO: Add related articles -->
   </div>
 </Layout>
+
+<style is:global>
+  .content-container {
+    h2 {
+      @apply text-cyan-300 mt-10 mb-3 text-2xl font-bold;
+    }
+    p,
+    pre {
+      @apply mb-5;
+    }
+
+    pre {
+      @apply rounded-lg p-4 bg-gradient-to-r from-[#060A26] to-[#060A26];
+    }
+  }
+</style>
