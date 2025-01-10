@@ -3,7 +3,7 @@ import type { TechCategory } from "../categories";
 export const getIcon = (category: TechCategory): string => {
   switch (category) {
     case "JavaScript":
-      return "ion:logo-javascript";
+      return "devicon-plain:javascript";
     case "TypeScript":
       return "devicon-plain:typescript";
     case "React":
