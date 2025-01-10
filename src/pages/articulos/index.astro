@@ -9,7 +9,6 @@ import { sortPostsByDate } from "../../lib/sortPostsByDate";
 
 const search = Astro.url.searchParams.get("q");
 
-// TODO: Handle no posts found
 const posts = await getCollection("blog", (data: CollectionEntry<"blog">) =>
   handleSearchParams(data, search),
 );
@@ -18,19 +17,32 @@ const sortedPosts = sortPostsByDate(posts);
 ---
 
 <Layout>
-  <div
-    class="grid px-4 grid-cols-1 sm:grid-cols-2 md:px-5 md:grid-cols-3 gap-7 pt-11 pb-20"
-  >
-    {
-      sortedPosts.map(({ data, slug }: CollectionEntry<"blog">) => (
-        <Article
-          title={data.title}
-          date={data.date}
-          category={data.category}
-          description={data.description}
-          slug={slug}
-        />
-      ))
-    }
-  </div>
+  {
+    sortedPosts.length > 0 ? (
+      <div class="grid px-4 grid-cols-1 sm:grid-cols-2 md:px-5 md:grid-cols-3 gap-7 pt-11 pb-20">
+        {sortedPosts.map(({ data, slug }: CollectionEntry<"blog">) => (
+          <Article
+            title={data.title}
+            date={data.date}
+            category={data.category}
+            description={data.description}
+            slug={slug}
+          />
+        ))}
+      </div>
+    ) : (
+      <div class="section-padding flex flex-col justify-center items-center text-center h-[calc(100vh-145px)] md:h-[calc(100vh-83px)]">
+        <h1 class="text-6xl font-bold mb-4 text-cyan-300">404</h1>
+        <h2 class="text-2xl font-semibold mb-4 text-cyan-300">
+          Artículo no encontrado
+        </h2>
+
+        <p class="text-white">
+          Lo sentimos, no pudimos encontrar el artículo que estás buscando.
+          <br /> Por favor, intenta buscar con otros términos o vuelve más
+          tarde.
+        </p>
+      </div>
+    )
+  }
 </Layout>
