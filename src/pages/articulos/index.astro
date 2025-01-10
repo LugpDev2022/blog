@@ -9,6 +9,7 @@ import { sortPostsByDate } from "../../lib/sortPostsByDate";
 
 const search = Astro.url.searchParams.get("q");
 
+// TODO: Handle no posts found
 const posts = await getCollection("blog", (data: CollectionEntry<"blog">) =>
   handleSearchParams(data, search),
 );
