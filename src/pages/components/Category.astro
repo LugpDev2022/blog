@@ -12,10 +12,11 @@ const { name } = Astro.props;
 const icon = getIcon(name);
 ---
 
-<div
+<a
+  href=`/categorias/${name.toLowerCase()}`
   class="flex gap-4 items-center bg-cyan-300/10 p-4 rounded-lg transition hover:bg-cyan-300/20"
 >
   <Icon name={icon} size={36} />
 
   <h3>{name}</h3>
-</div>
+</a>
