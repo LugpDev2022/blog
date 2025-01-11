@@ -1,4 +1,4 @@
-import type { CollectionEntry, CollectionKey } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 
 // TODO: create a better search algorithm
 export const handleSearchParams = (
