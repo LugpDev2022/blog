@@ -2,6 +2,8 @@
 import CategoryArticles from "../../components/CategoryArticles.astro";
 import Layout from "../../layouts/Layout.astro";
 import { techCategoryValues } from "../../categories";
+
+const sortedCategories = [...techCategoryValues].sort();
 ---
 
 <Layout>
@@ -10,7 +12,7 @@ import { techCategoryValues } from "../../categories";
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {
-        techCategoryValues.map((category) => (
+        sortedCategories.map((category) => (
           <CategoryArticles category={category} />
         ))
       }
