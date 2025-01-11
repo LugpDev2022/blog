@@ -25,7 +25,7 @@ const { title } = Astro.props;
   </head>
   <body>
     <Navbar />
-    <div class="pt-[145px] md:pt-[83px]">
+    <div transition:animate="fade" class="pt-[145px] md:pt-[83px]">
       <slot />
     </div>
     <Footer />
