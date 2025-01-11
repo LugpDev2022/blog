@@ -26,7 +26,7 @@ const query = Astro.url.searchParams.get("q");
 
   const form = document.querySelector("#searchbox-form");
 
-  form.addEventListener("submit", (event) => {
+  form?.addEventListener("submit", (event) => {
     event.preventDefault();
     const input = form.querySelector("input[name='query']") as HTMLInputElement;
 
