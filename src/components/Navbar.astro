@@ -1,8 +1,7 @@
 ---
-import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
-import Searchbox from "./Searchbox";
 import logo from "../images/logo.png";
+import Searchbox from "./Searchbox.astro";
 
 const search = Astro.url.searchParams.get("q");
 
@@ -38,14 +37,7 @@ const { pathname } = Astro.url;
     </nav>
   </div>
 
-  <Searchbox client:load currentValue={search ? search : ""}>
-    <Icon
-      name="gravity-ui:magnifier"
-      size={20}
-      color="#36dde8"
-      class="absolute top-1/2 transform left-2.5 -translate-y-1/2"
-    />
-  </Searchbox>
+  <Searchbox />
 </header>
 
 <style>
