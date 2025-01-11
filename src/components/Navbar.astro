@@ -24,13 +24,14 @@ const { pathname } = Astro.url;
     <nav class="flex gap-5 md:gap-[30px] text-sm font-semibold">
       <a
         href="/articulos"
-        class=`nav-link ${pathname.includes("/articulos") ? "text-cyan-300": ""}`
+        class={pathname.includes("/articulos") ? "nav-active-link" : "nav-link"}
         >Artículos</a
       >
       <a
         href="/categorias"
-        class=`nav-link ${pathname.includes("/categorias") ? "text-cyan-300": ""}`
-        >Categorías</a
+        class={pathname.includes("/categorias")
+          ? "nav-active-link"
+          : "nav-link"}>Categorías</a
       >
     </nav>
   </div>
@@ -41,5 +42,9 @@ const { pathname } = Astro.url;
 <style>
   .nav-link:hover {
     @apply transition text-cyan-300;
+  }
+
+  .nav-active-link {
+    @apply text-cyan-300;
   }
 </style>
