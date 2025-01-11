@@ -1,6 +1,6 @@
 import { describe, it, expect } from "vitest";
 import { handleSearchParams } from "../../src/lib/handleSearchParams";
-import type { CollectionEntry, Render } from "astro:content";
+import type { CollectionEntry } from "astro:content";
 
 describe("handleSearchParams", () => {
   const mockEntry = {

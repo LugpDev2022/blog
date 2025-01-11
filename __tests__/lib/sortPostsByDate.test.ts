@@ -1,5 +1,6 @@
 import { sortPostsByDate } from "../../src/lib/sortPostsByDate";
 import type { CollectionEntry } from "astro:content";
+import { describe, it, expect } from "vitest";
 
 describe("sortPostsByDate", () => {
   const mockPosts = [

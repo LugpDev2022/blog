@@ -5,5 +5,5 @@
     "jsxImportSource": "react",
     "types": ["vitest/globals"]
   },
-  "exclude": ["**/*.test.ts", "dist"]
+  "exclude": ["dist"]
 }

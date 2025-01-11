@@ -1,5 +1,6 @@
 import { validateCategory } from "../../src/lib/validateCategory";
 import { techCategoryValues } from "../../src/categories";
+import { describe, it, expect } from "vitest";
 
 describe("validateCategory", () => {
   it("should return the category and no error for a valid category", () => {
