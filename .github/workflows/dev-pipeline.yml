@@ -55,7 +55,7 @@ jobs:
         run: npm ci
 
       - name: Test
-        run: npm run jest
+        run: npm run vitest
 
   e2e:
     needs: [lint, build]
