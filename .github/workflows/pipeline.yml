@@ -1,8 +1,11 @@
-name: Development Pipeline
+name: Pipeline
 
 on:
   push:
-    branches: [dev, main]
+    branches: [main]
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize]
 
 jobs:
   lint:
