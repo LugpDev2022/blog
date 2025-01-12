@@ -3,14 +3,15 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
+    "astro": "astro",
     "dev": "astro dev",
+    "check": "astro check",
+    "build": "astro build",
     "start": "astro dev",
-    "build": "astro check && astro build",
     "preview": "astro preview",
     "test": "vitest run && cypress run",
     "vitest": "vitest",
-    "cy:open": "cypress open",
-    "astro": "astro"
+    "cy:open": "cypress open"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
