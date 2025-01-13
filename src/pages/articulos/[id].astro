@@ -55,8 +55,16 @@ const icon = getIcon(post.data.category);
 
 <style is:global>
   .content-container {
+    h2,
+    h3 {
+      @apply text-cyan-300 mt-10 mb-3 font-bold;
+    }
     h2 {
-      @apply text-cyan-300 mt-10 mb-3 text-2xl font-bold;
+      @apply text-2xl;
+    }
+
+    h3 {
+      @apply text-xl;
     }
     p,
     pre {
