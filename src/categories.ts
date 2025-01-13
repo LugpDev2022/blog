@@ -4,7 +4,7 @@ export const techCategoryValues = [
   "React",
   "Next",
   "DevOps",
-  "Node.js",
+  "Nodejs",
   "Testing",
   "Astro",
   "Relatos",
