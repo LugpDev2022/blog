@@ -12,7 +12,7 @@ export const getIcon = (category: TechCategory): string => {
       return "devicon-plain:nextjs";
     case "DevOps":
       return "gravity-ui:cloud-gear";
-    case "Node.js":
+    case "Nodejs":
       return "ion:logo-nodejs";
     case "Testing":
       return "qlementine-icons:test-16";

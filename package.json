@@ -9,11 +9,11 @@
     "build": "astro build",
     "start": "astro dev",
     "preview": "astro preview",
-    "cypress": "cypress run",
-    "vitest": "vitest run",
-    "vitest:watch": "vitest",
-    "cy:open": "cypress open",
-    "test": "vitest run && cypress run"
+    "test:e2e": "cypress run",
+    "test": "vitest run",
+    "test:vitest:": "vitest",
+    "test:cy": "cypress open",
+    "test:all": "vitest run && cypress run"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
