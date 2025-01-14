@@ -15,4 +15,7 @@ export default defineConfig({
   integrations: [tailwind(), icon(), react()],
   output: "server",
   adapter: vercel(),
+  image: {
+    domains: ["res.cloudinary.com"],
+  },
 });
