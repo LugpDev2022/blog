@@ -67,12 +67,26 @@ const icon = getIcon(post.data.category);
       @apply text-xl;
     }
     p,
-    pre {
+    pre,
+    img,
+    ol {
       @apply mb-5;
+    }
+
+    img {
+      @apply shadow shadow-cyan-300 md:w-3/4 xl:w-3/5;
     }
 
     pre {
       @apply rounded-lg p-4 bg-gradient-to-r from-[#060A26] to-[#060A26];
+    }
+
+    ol {
+      @apply list-decimal px-8;
+    }
+
+    a {
+      @apply font-bold text-cyan-300;
     }
   }
 </style>
