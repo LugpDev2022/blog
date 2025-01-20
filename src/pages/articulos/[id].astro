@@ -1,9 +1,11 @@
 ---
 import { getCollection, render } from "astro:content";
+import { Icon } from "astro-icon/components";
+
 import Layout from "../../layouts/Layout.astro";
 import { stringToDate } from "../../lib/stringToDate";
-import { Icon } from "astro-icon/components";
 import { getIcon } from "../../lib/getIcon";
+import "../../styles/article-page.css";
 
 export const prerender = true;
 
@@ -52,45 +54,3 @@ const icon = getIcon(post.data.category);
     <!-- TODO: Add related articles -->
   </div>
 </Layout>
-
-<style is:global>
-  .content-container {
-    h2,
-    h3 {
-      @apply text-cyan-300 mt-10 mb-3 font-bold;
-    }
-    h2 {
-      @apply text-2xl;
-    }
-
-    h3 {
-      @apply text-xl;
-    }
-    p,
-    pre,
-    img,
-    ol {
-      @apply mb-5;
-    }
-
-    img {
-      @apply shadow shadow-cyan-300 md:w-3/4 xl:w-3/5;
-    }
-
-    pre {
-      @apply rounded-lg p-4 bg-gradient-to-r from-[#060A26] to-[#060A26];
-    }
-
-    ol {
-      @apply list-decimal px-8;
-    }
-
-    a {
-      @apply font-bold text-cyan-300;
-    }
-
-    .code {
-      @apply bg-cyan-300/20 py-0.5 px-1.5 rounded-md;
-    }
-  }
-</style>
