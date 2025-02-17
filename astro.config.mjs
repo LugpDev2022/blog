@@ -9,21 +9,10 @@ import react from "@astrojs/react";
 
 import vercel from "@astrojs/vercel";
 
-import partytown from "@astrojs/partytown";
-
 // https://astro.build/config
 export default defineConfig({
   server: { port: 3000 },
-  integrations: [
-    tailwind(),
-    icon(),
-    react(),
-    partytown({
-      config: {
-        forward: ["dataLayer.push"],
-      },
-    }),
-  ],
+  integrations: [tailwind(), icon(), react()],
   output: "server",
   adapter: vercel(),
   image: {
