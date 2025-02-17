@@ -14,7 +14,11 @@ export default defineConfig({
   server: { port: 3000 },
   integrations: [tailwind(), icon(), react()],
   output: "server",
-  adapter: vercel(),
+  adapter: vercel({
+    webAnalytics: {
+      enabled: true,
+    },
+  }),
   image: {
     domains: ["res.cloudinary.com"],
   },
